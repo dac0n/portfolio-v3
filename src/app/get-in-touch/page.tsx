@@ -1,10 +1,9 @@
-import { FlipNav } from "@/components/nav-bar/NavBar";
+import { NavMenu } from "@/components/nav-menu/Nav-Menu";
 
 export default function GetInTouch() {
   return (
-    <main className="p-24 text-center bg-blue-800">
-      <h1 className="text-5xl font-black">GetInTouch</h1>
-      <FlipNav />
+    <main className="flex h-screen w-screen flex-col justify-center bg-black text-center align-middle">
+      <NavMenu />
     </main>
   );
 }

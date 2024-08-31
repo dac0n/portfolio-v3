@@ -1,10 +1,9 @@
-import { FlipNav } from "@/components/nav-bar/NavBar";
+import { NavMenu } from "@/components/nav-menu/Nav-Menu";
 
 export default function About() {
   return (
-    <main className="p-24 text-center bg-pink-400">
-      <h1 className="text-5xl font-black">Community</h1>
-      <FlipNav />
+    <main className="flex h-screen w-screen flex-col justify-center bg-black text-center align-middle">
+      <NavMenu />
     </main>
   );
 }

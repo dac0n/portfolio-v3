@@ -1,10 +1,10 @@
-import { FlipNav } from "@/components/nav-bar/NavBar";
+import { NavMenu } from "@/components/nav-menu/Nav-Menu";
 
 export default function TechStack() {
   return (
-    <main className="p-24 text-center bg-green-900">
-      <h1 className="text-5xl font-black">TechStack</h1>
-      <FlipNav />
+    <main className="flex h-screen w-screen flex-col justify-center bg-black text-center align-middle">
+      <h1 className="text-5xl font-black">Bottom</h1>
+      <NavMenu />
     </main>
   );
 }

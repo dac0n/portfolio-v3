@@ -1,10 +1,10 @@
-import Link from "next/link";
-import { TransitionLink } from "../utils/TransitionLink";
-import { TransitionType } from "../utils/TransitionVariants";
+"use_client";
 
-export const FlipNav = () => {
+import TransitionLink from "../utils/TransitionLink";
+
+export const FlipNav = ({}) => {
   return (
-    <nav className="p-4 flex items-center justify-between relative">
+    <nav className="p-4 flex items-center justify-center relative">
       <NavLeft />
     </nav>
   );
@@ -13,21 +13,13 @@ export const FlipNav = () => {
 const NavLeft = () => {
   return (
     <div className="flex items-center gap-6">
-      <TransitionLink href="/" direction={TransitionType.Right}>
+      <TransitionLink href="/">
         <Logo />
       </TransitionLink>
-      <TransitionLink href="/about" direction={TransitionType.Right}>
-        About
-      </TransitionLink>
-      <TransitionLink href="/get-in-touch" direction={TransitionType.Up}>
-        Get in touch
-      </TransitionLink>
-      <TransitionLink href="/projects" direction={TransitionType.Left}>
-        Projects
-      </TransitionLink>
-      <TransitionLink href="/tech-stack" direction={TransitionType.Down}>
-        Tech-stack
-      </TransitionLink>
+      <TransitionLink href="/about">Right</TransitionLink>
+      <TransitionLink href="/get-in-touch">Up</TransitionLink>
+      <TransitionLink href="/projects">Left</TransitionLink>
+      <TransitionLink href="/tech-stack">Bottom</TransitionLink>
     </div>
   );
 };
