@@ -17,6 +17,17 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/assets/svgeComponents/*.{js,ts,jsx,tsx,mdx}",
   ],
+  theme: {
+    extend: {
+      fontFamily: {
+        chakraPetch: ["var(--font-chakraPetch)"],
+        exo2: ["var(--font-exo2)"],
+      },
+      colors: {
+        ...colors,
+      },
+    },
+  },
   plugins: [
     require("tailwindcss-themer")({
       defaultTheme: {

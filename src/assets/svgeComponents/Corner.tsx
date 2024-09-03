@@ -28,21 +28,21 @@ export const CornerIcon = ({
   isActive = false,
   className,
 }: CornerProps) => {
+  const width = cornerType === "triangle" ? "w-[64px]" : "w-[18px]";
   return (
     <svg
-      viewBox="0 0 18 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       transform={`scale(${invertedX ? -1 : 1}, ${invertedY ? -1 : 1})`}
-      className={twMerge("h-16 w-[18px]", className)}
+      className={twMerge(`h-full ${width}`, className)}
     >
       <path
         d={paths[cornerType]}
         className={` ${
           isActive
             ? "fill-menuBtn-bg-active stroke-menuBtn-outline-active"
-            : "fill-menuBtn-bg-inactive stroke-menuBtn-outline-inactive group-hover:fill-menuBtn-bg-hovered"
-        } stroke-menuBtn-outline-hovered transition-colors duration-300 ease-in-out`}
+            : "fill-menuBtn-bg-inactive stroke-menuBtn-outline-inactive group-hover/button:fill-menuBtn-bg-hovered group-hover/button:stroke-menuBtn-outline-hovered"
+        } transition-colors duration-300 ease-in-out`}
       />
     </svg>
   );

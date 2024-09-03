@@ -7,14 +7,14 @@ import { ThemeSwitchIcon } from "@/assets/svgeComponents/ThemeSwitch";
 import { HomeIcon } from "@/assets/svgeComponents/Home";
 import { useRouter, usePathname } from "next/navigation";
 import { navigate } from "../utils/TransitionLink";
+import { hoverable } from "../utils/helperFunctions";
+import { ClassName } from "../utils/types";
 
 type MenuLocation = Exclude<AppRoute, "/">;
 
-type MenuBtnBASE = {};
-
 type MenuNavBtn = {
   name: string;
-  route: AppRoute;
+  route: MenuLocation;
 };
 
 type MenuUtilBtn = {
@@ -86,8 +86,32 @@ const menuNavBtnsLayout: {
   },
 };
 
+const navMenuTransforms: {
+  [key in MenuLocation]: {
+    flip: MenuLocation[];
+    angle: ClassName;
+  };
+} = {
+  "/about": {
+    angle: "rotate-45",
+    flip: ["/projects", "/tech-stack"],
+  },
+  "/get-in-touch": {
+    angle: "-rotate-45",
+    flip: [],
+  },
+  "/projects": {
+    angle: "rotate-[-135deg]",
+    flip: [],
+  },
+  "/tech-stack": {
+    angle: "rotate-[135deg]",
+    flip: [],
+  },
+};
+
 type NavMenuProps = {
-  // appRoute: MenuLocation;
+  appRoute: MenuLocation;
   //activeBtn: keyof MenuButtons;
 };
 
@@ -95,6 +119,9 @@ export const NavMenu = ({}: NavMenuProps) => {
   const router = useRouter();
   const currentPath = usePathname() as MenuLocation;
   const [activeBtn, switchActiveBtn] = useState<keyof MenuBtns>("leftLong");
+
+  const isButtonTextFlipped = (button: MenuNavBtn) =>
+    navMenuTransforms[currentPath].flip.includes(button.route);
 
   const menuLayout: MenuBtns = {
     ...menuNavBtnsLayout[currentPath],
@@ -119,37 +146,75 @@ export const NavMenu = ({}: NavMenuProps) => {
   };
 
   return (
-    <Frame className="flex flex-col">
-      <Frame className="">
+    <Frame
+      className={`flex h-80 w-[318px] flex-col ${navMenuTransforms[currentPath].angle}`}
+    >
+      <Frame className="w-full">
         <MenuBtn
           leftCorner={{ cornerType: "square" }}
-          rightCorner={{ cornerType: "corner" }}
+          rightCorner={{ cornerType: "triangle" }}
           isActive={activeBtn === "leftLong"}
           onClick={() => handlePress("leftLong")}
+          flipText={isButtonTextFlipped(menuLayout.leftLong)}
         >
           {menuLayout.leftLong.name}
         </MenuBtn>
       </Frame>
-      <Frame className="flex flex-row">
-        <Frame className="flex flex-col">
+      <Frame className="mt-[-1px] flex flex-row justify-start">
+        <Frame className="mr-[-1px] flex h-64 w-48 flex-col justify-start">
           <MenuBtn
             leftCorner={{
-              cornerType: "corner",
+              cornerType: "triangle",
               invertedX: true,
               invertedY: true,
             }}
             rightCorner={{ cornerType: "square" }}
             isActive={activeBtn === "leftShort"}
             onClick={() => handlePress("leftShort")}
+            className="w-full"
+            flipText={isButtonTextFlipped(menuLayout.leftShort)}
           >
             {menuLayout.leftShort.name}
           </MenuBtn>
-          <HomeIcon onClick={() => handlePress("homeIcon")} />
+          <Frame className="group/button mt-[-1px] h-[131px] w-full justify-end">
+            <div
+              className={`relative h-[131px] w-[131px] ${hoverable(activeBtn === "homeIcon", "bg", "outline")}`}
+              style={{
+                clipPath: "polygon(100% 0, 0 0, 100% 100%)",
+              }}
+            >
+              <Frame
+                className={`absolute right-[1px] top-[1px] h-32 w-32 items-start justify-end ${hoverable(activeBtn === "homeIcon", "bg")}`}
+                style={{
+                  clipPath: "inherit",
+                }}
+              >
+                <HomeIcon
+                  className="mr-4 mt-4 h-11 w-11 rotate-45"
+                  onClick={() => handlePress("homeIcon")}
+                />
+              </Frame>
+            </div>
+          </Frame>
         </Frame>
-        <Frame className="flex flex-col">
-          <ThemeSwitchIcon onClick={() => handlePress("themeSwitchIcon")} />
-          <Frame className="">
+        <Frame className="flex h-64 w-16 flex-col justify-normal">
+          <div className="group/button mb-[-1px]">
+            <Frame
+              className={`relative h-16 w-16 ${hoverable(activeBtn === "themeSwitchIcon", "bg", "outline")}`}
+            >
+              <Frame
+                className={`absolute left-[1px] top-[1px] h-[62px] w-[62px] ${hoverable(activeBtn === "themeSwitchIcon", "bg")}`}
+              >
+                <ThemeSwitchIcon
+                  className="h-11 w-11 rotate-45"
+                  onClick={() => handlePress("themeSwitchIcon")}
+                />
+              </Frame>
+            </Frame>
+          </div>
+          <Frame className="relative h-48 w-16">
             <MenuBtn
+              className="absolute left-1/2 top-1/2 h-16 w-48 origin-center -translate-x-1/2 -translate-y-1/2 rotate-90 transform"
               leftCorner={{
                 cornerType: "square",
               }}
@@ -159,17 +224,20 @@ export const NavMenu = ({}: NavMenuProps) => {
               }}
               isActive={activeBtn === "rightShort"}
               onClick={() => handlePress("rightShort")}
+              flipText={isButtonTextFlipped(menuLayout.rightShort)}
             >
               {menuLayout.rightShort.name}
             </MenuBtn>
           </Frame>
         </Frame>
-        <Frame className="">
+        <Frame className="relative ml-[-1px] h-64 w-16">
           <MenuBtn
+            className="absolute left-1/2 top-1/2 h-16 w-64 origin-center -translate-x-1/2 -translate-y-1/2 rotate-90 transform"
             leftCorner={{ cornerType: "square" }}
             rightCorner={{ cornerType: "square" }}
             isActive={activeBtn === "rightLong"}
             onClick={() => handlePress("rightLong")}
+            flipText={isButtonTextFlipped(menuLayout.rightLong)}
           >
             {menuLayout.rightLong.name}
           </MenuBtn>
