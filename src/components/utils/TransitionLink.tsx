@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { AppRoute, Direction } from "./enums";
 import { getNewBodyTransitionName } from "./transitionsUtils";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { useCallback } from "react";
 
 type TransitionLinkProps = {
   href: AppRoute;
@@ -40,7 +41,7 @@ export const navigate = (router: AppRouterInstance, href: AppRoute) => {
     router.push(href);
   } else {
     switchTransitionType(href);
-    document.startViewTransition(() => {
+    document.startViewTransition(async () => {
       router.push(href);
     });
   }

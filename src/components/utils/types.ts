@@ -7,6 +7,9 @@ type HEX = `#${string}`;
 
 export type ClassName = HTMLProps<HTMLElement>["className"];
 
+export type AngleClassName =
+  `${"-" | ""}rotate-${number | `[${"-" | ""}${number}deg]`}`;
+
 export type Color = RGB | RGBA | HEX;
 
 export type StrictOmit<T, K extends keyof T> = T extends any

@@ -1,4 +1,4 @@
-import { ClassName } from "./types";
+import { AngleClassName, ClassName } from "./types";
 
 // for button elements
 export const hoverable = (
@@ -51,3 +51,33 @@ export const hoverable = (
     }
   }
 };
+
+export function rotatedRectangleBoundingBox(
+  width: number,
+  height: number,
+  angleDegrees: number,
+) {
+  // Convert angle to radians
+  const angleRadians = (Math.PI / 180) * angleDegrees;
+
+  // Calculate the width and height of the bounding box
+  const cosTheta = Math.abs(Math.cos(angleRadians));
+  const sinTheta = Math.abs(Math.sin(angleRadians));
+
+  const boundingBoxWidth = width * cosTheta + height * sinTheta;
+  const boundingBoxHeight = width * sinTheta + height * cosTheta;
+  console.log(boundingBoxWidth, boundingBoxHeight);
+  return {
+    width: boundingBoxWidth,
+    height: boundingBoxHeight,
+  };
+}
+
+export function extractAngle(className: AngleClassName): number {
+  const match = className.match(/-?\d+\.?\d*/);
+  if (!match)
+    throw new Error(
+      "Failed to extract angle from class at extractAngle invocation, helperFunctions.ts",
+    );
+  return Number(match?.[0]);
+}

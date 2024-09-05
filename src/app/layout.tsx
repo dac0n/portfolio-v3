@@ -1,3 +1,4 @@
+import NavLayout from "@/components/nav-layout/nav-layout";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Chakra_Petch, Exo_2 } from "next/font/google";
@@ -26,8 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`h-screen cursor-default [view-transition-name:body-transition-left] ${chakraPetch.variable} ${exo2.variable}`}
+        className={`bg-bgColor h-screen cursor-default overflow-hidden [view-transition-name:body-transition-left] ${chakraPetch.variable} ${exo2.variable}`}
       >
+        <NavLayout />
         {children}
       </body>
     </html>

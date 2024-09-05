@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Frame } from "../frame/Frame";
 import { AppRoute } from "../utils/enums";
 import { MenuBtn } from "../menu-btn/MenuBtn";
@@ -7,8 +7,13 @@ import { ThemeSwitchIcon } from "@/assets/svgeComponents/ThemeSwitch";
 import { HomeIcon } from "@/assets/svgeComponents/Home";
 import { useRouter, usePathname } from "next/navigation";
 import { navigate } from "../utils/TransitionLink";
-import { hoverable } from "../utils/helperFunctions";
-import { ClassName } from "../utils/types";
+import {
+  extractAngle,
+  hoverable,
+  rotatedRectangleBoundingBox,
+} from "../utils/helperFunctions";
+import { AngleClassName, ClassName } from "../utils/types";
+import { ClassNameValue } from "tailwind-merge";
 
 type MenuLocation = Exclude<AppRoute, "/">;
 
@@ -89,37 +94,41 @@ const menuNavBtnsLayout: {
 const navMenuTransforms: {
   [key in MenuLocation]: {
     flip: MenuLocation[];
-    angle: ClassName;
+    rotateClass: AngleClassName;
+    offset: `${"top" | "left" | "bottom" | "right"}-[${number}px]` | "";
   };
 } = {
   "/about": {
-    angle: "rotate-45",
+    rotateClass: "rotate-45",
     flip: ["/projects", "/tech-stack"],
+    offset: "left-[45px]",
   },
   "/get-in-touch": {
-    angle: "-rotate-45",
+    rotateClass: "-rotate-45",
     flip: [],
+    offset: "bottom-[45px]",
   },
   "/projects": {
-    angle: "rotate-[-135deg]",
-    flip: [],
+    rotateClass: "rotate-[-135deg]",
+    flip: ["/projects", "/tech-stack"],
+    offset: "right-[45px]",
   },
   "/tech-stack": {
-    angle: "rotate-[135deg]",
-    flip: [],
+    rotateClass: "rotate-[135deg]",
+    flip: ["/about", "/get-in-touch", "/projects", "/tech-stack"],
+    offset: "top-[45px]",
   },
 };
 
 type NavMenuProps = {
-  appRoute: MenuLocation;
   //activeBtn: keyof MenuButtons;
+  className?: ClassName;
 };
 
-export const NavMenu = ({}: NavMenuProps) => {
+export const NavMenu = ({ className }: NavMenuProps) => {
   const router = useRouter();
   const currentPath = usePathname() as MenuLocation;
-  const [activeBtn, switchActiveBtn] = useState<keyof MenuBtns>("leftLong");
-
+  const [activeBtn, setActiveBtn] = useState<keyof MenuBtns>("leftLong");
   const isButtonTextFlipped = (button: MenuNavBtn) =>
     navMenuTransforms[currentPath].flip.includes(button.route);
 
@@ -135,8 +144,11 @@ export const NavMenu = ({}: NavMenuProps) => {
     },
   };
 
+  useEffect(() => {
+    setActiveBtn("leftLong");
+  }, [currentPath]);
+
   const handlePress = (buttonName: keyof MenuBtns) => {
-    switchActiveBtn(buttonName);
     const button = menuLayout[buttonName];
     if ("route" in button) {
       navigate(router, button.route);
@@ -145,102 +157,124 @@ export const NavMenu = ({}: NavMenuProps) => {
     }
   };
 
+  const { width, height } = rotatedRectangleBoundingBox(
+    318,
+    319,
+    extractAngle(navMenuTransforms[currentPath].rotateClass),
+  );
+
   return (
     <Frame
-      className={`flex h-80 w-[318px] flex-col ${navMenuTransforms[currentPath].angle}`}
+      className={className}
+      style={{
+        width: `${width}px`,
+        height: `${height}px`,
+      }}
     >
-      <Frame className="w-full">
-        <MenuBtn
-          leftCorner={{ cornerType: "square" }}
-          rightCorner={{ cornerType: "triangle" }}
-          isActive={activeBtn === "leftLong"}
-          onClick={() => handlePress("leftLong")}
-          flipText={isButtonTextFlipped(menuLayout.leftLong)}
-        >
-          {menuLayout.leftLong.name}
-        </MenuBtn>
-      </Frame>
-      <Frame className="mt-[-1px] flex flex-row justify-start">
-        <Frame className="mr-[-1px] flex h-64 w-48 flex-col justify-start">
+      <Frame
+        className={`relative h-[319px] w-[318px] flex-col ${navMenuTransforms[currentPath].rotateClass} ${navMenuTransforms[currentPath].offset}`}
+        style={{
+          clipPath:
+            "polygon(0 0, 80.8% 0, 100% 19.2%, 100% 100%, 79.7% 100%, 0 20.5%)",
+          shapeOutside:
+            "polygon(0 0, 80.8% 0, 100% 19.2%, 100% 100%, 79.7% 100%, 0 20.5%)",
+        }}
+      >
+        <Frame className="w-full">
           <MenuBtn
-            leftCorner={{
-              cornerType: "triangle",
-              invertedX: true,
-              invertedY: true,
-            }}
-            rightCorner={{ cornerType: "square" }}
-            isActive={activeBtn === "leftShort"}
-            onClick={() => handlePress("leftShort")}
-            className="w-full"
-            flipText={isButtonTextFlipped(menuLayout.leftShort)}
+            leftCorner={{ cornerType: "square" }}
+            rightCorner={{ cornerType: "triangle" }}
+            isActive={activeBtn === "leftLong"}
+            onClick={() => handlePress("leftLong")}
+            flipText={isButtonTextFlipped(menuLayout.leftLong)}
           >
-            {menuLayout.leftShort.name}
+            {menuLayout.leftLong.name}
           </MenuBtn>
-          <Frame className="group/button mt-[-1px] h-[131px] w-full justify-end">
-            <div
-              className={`relative h-[131px] w-[131px] ${hoverable(activeBtn === "homeIcon", "bg", "outline")}`}
-              style={{
-                clipPath: "polygon(100% 0, 0 0, 100% 100%)",
-              }}
-            >
-              <Frame
-                className={`absolute right-[1px] top-[1px] h-32 w-32 items-start justify-end ${hoverable(activeBtn === "homeIcon", "bg")}`}
-                style={{
-                  clipPath: "inherit",
-                }}
-              >
-                <HomeIcon
-                  className="mr-4 mt-4 h-11 w-11 rotate-45"
-                  onClick={() => handlePress("homeIcon")}
-                />
-              </Frame>
-            </div>
-          </Frame>
         </Frame>
-        <Frame className="flex h-64 w-16 flex-col justify-normal">
-          <div className="group/button mb-[-1px]">
-            <Frame
-              className={`relative h-16 w-16 ${hoverable(activeBtn === "themeSwitchIcon", "bg", "outline")}`}
-            >
-              <Frame
-                className={`absolute left-[1px] top-[1px] h-[62px] w-[62px] ${hoverable(activeBtn === "themeSwitchIcon", "bg")}`}
-              >
-                <ThemeSwitchIcon
-                  className="h-11 w-11 rotate-45"
-                  onClick={() => handlePress("themeSwitchIcon")}
-                />
-              </Frame>
-            </Frame>
-          </div>
-          <Frame className="relative h-48 w-16">
+        <Frame className="mt-[-1px] flex flex-row justify-start">
+          <Frame className="mr-[-1px] flex h-64 w-48 flex-col justify-start">
             <MenuBtn
-              className="absolute left-1/2 top-1/2 h-16 w-48 origin-center -translate-x-1/2 -translate-y-1/2 rotate-90 transform"
               leftCorner={{
-                cornerType: "square",
-              }}
-              rightCorner={{
                 cornerType: "triangle",
+                invertedX: true,
                 invertedY: true,
               }}
-              isActive={activeBtn === "rightShort"}
-              onClick={() => handlePress("rightShort")}
-              flipText={isButtonTextFlipped(menuLayout.rightShort)}
+              rightCorner={{ cornerType: "square" }}
+              isActive={activeBtn === "leftShort"}
+              onClick={() => handlePress("leftShort")}
+              className="w-full"
+              flipText={isButtonTextFlipped(menuLayout.leftShort)}
             >
-              {menuLayout.rightShort.name}
+              {menuLayout.leftShort.name}
             </MenuBtn>
+            <Frame className="group/button mt-[-1px] h-[131px] w-full justify-end">
+              <div
+                className={`relative h-[131px] w-[131px] ${hoverable(activeBtn === "homeIcon", "bg", "outline")}`}
+                style={{
+                  clipPath: "polygon(100% 0, 0 0, 100% 100%)",
+                }}
+              >
+                <Frame
+                  className={`absolute right-[1px] top-[1px] h-[127.5px] w-[127.5px] items-start justify-end ${hoverable(activeBtn === "homeIcon", "bg")}`}
+                  style={{
+                    clipPath: "inherit",
+                  }}
+                >
+                  <HomeIcon
+                    className="mr-4 mt-4 h-11 w-11 rotate-45"
+                    onClick={() => handlePress("homeIcon")}
+                  />
+                </Frame>
+              </div>
+            </Frame>
           </Frame>
-        </Frame>
-        <Frame className="relative ml-[-1px] h-64 w-16">
-          <MenuBtn
-            className="absolute left-1/2 top-1/2 h-16 w-64 origin-center -translate-x-1/2 -translate-y-1/2 rotate-90 transform"
-            leftCorner={{ cornerType: "square" }}
-            rightCorner={{ cornerType: "square" }}
-            isActive={activeBtn === "rightLong"}
-            onClick={() => handlePress("rightLong")}
-            flipText={isButtonTextFlipped(menuLayout.rightLong)}
-          >
-            {menuLayout.rightLong.name}
-          </MenuBtn>
+          <Frame className="flex h-64 w-16 flex-col justify-normal">
+            <div className="group/button mb-[-1px]">
+              <Frame
+                className={`relative h-16 w-16 ${hoverable(activeBtn === "themeSwitchIcon", "bg", "outline")}`}
+              >
+                <Frame
+                  className={`absolute left-[1px] top-[1px] h-[62px] w-[62px] ${hoverable(activeBtn === "themeSwitchIcon", "bg")}`}
+                >
+                  <ThemeSwitchIcon
+                    className="h-11 w-11 rotate-45"
+                    onClick={() => handlePress("themeSwitchIcon")}
+                  />
+                </Frame>
+              </Frame>
+            </div>
+            <Frame className="relative h-[192px] w-16">
+              <MenuBtn
+                className="absolute left-1/2 top-1/2 h-16 w-[192px] origin-center -translate-x-1/2 -translate-y-1/2 rotate-90 transform"
+                leftCorner={{
+                  cornerType: "square",
+                }}
+                rightCorner={{
+                  cornerType: "triangle",
+                  invertedY: true,
+                }}
+                isActive={activeBtn === "rightShort"}
+                onClick={() => handlePress("rightShort")}
+                flipText={isButtonTextFlipped(menuLayout.rightShort)}
+              >
+                {menuLayout.rightShort.name}
+              </MenuBtn>
+            </Frame>
+          </Frame>
+          <Frame className="relative ml-[-1px] flex h-[256px] w-16 items-start justify-start">
+            <Frame className="relative h-[255px] w-16">
+              <MenuBtn
+                className="absolute left-1/2 top-1/2 h-16 w-[255px] origin-center -translate-x-1/2 -translate-y-1/2 rotate-90 transform"
+                leftCorner={{ cornerType: "square" }}
+                rightCorner={{ cornerType: "square" }}
+                isActive={activeBtn === "rightLong"}
+                onClick={() => handlePress("rightLong")}
+                flipText={isButtonTextFlipped(menuLayout.rightLong)}
+              >
+                {menuLayout.rightLong.name}
+              </MenuBtn>
+            </Frame>
+          </Frame>
         </Frame>
       </Frame>
     </Frame>

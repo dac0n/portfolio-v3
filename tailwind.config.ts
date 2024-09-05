@@ -81,6 +81,7 @@ const config: Config = {
             nonInteractive: colors.white,
             inactive: colors.navyBlue,
             active: colors.neonBlue,
+            bgColor: colors.black,
           },
           animation: {
             "fade-in": "fade-in 1s ease-out",
