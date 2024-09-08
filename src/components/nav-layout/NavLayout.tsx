@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 import { AppRoute } from "@/components/utils/enums";
-import { Frame } from "../frame/Frame";
 import { usePathname } from "next/navigation";
 import { ClassName } from "../utils/types";
-import { NavMenu } from "../nav-menu/Nav-Menu";
+import { NavMenu } from "../nav-menu/NavMenu";
 import { Arc } from "@/assets/svgeComponents/Arc";
 
 type CircleShapeLocation = Exclude<AppRoute, "/">;
@@ -51,29 +50,30 @@ const routeToSideMap: {
 };
 
 const NavLayout = () => {
-  const currentPath = usePathname() as CircleShapeLocation;
+  const currentPath = usePathname() as AppRoute;
+  if (currentPath === "/") return <></>; // todo - rewrite to allow many exceptions processed automatically
   const outerDivTransforms =
     sideTransforms[routeToSideMap[currentPath]]?.outerDiv;
-  const innerDivTransforms =
+  const circleShapeTransforms =
+    sideTransforms[routeToSideMap[currentPath]]?.circleShape;
+  const navMenuTransforms =
     sideTransforms[routeToSideMap[currentPath]]?.navMenu;
-  if (!outerDivTransforms || !innerDivTransforms) {
+  if (!outerDivTransforms || !circleShapeTransforms || !circleShapeTransforms) {
     console.error(
-      `Route layout is not specified for ${!outerDivTransforms ? "outer div" : "inner div"}. Layout will not be rendered for route ${currentPath}`,
+      `Route layout is not specified for ${!outerDivTransforms ? "outer div" : !circleShapeTransforms ? "circle shape" : "navigation menu"}. Layout will not be rendered for route ${currentPath}`,
     );
     return <></>;
   }
 
   return (
-    <div
-      className={`absolute ${sideTransforms[routeToSideMap[currentPath]].outerDiv} pointer-events-none`}
-    >
+    <div className={`absolute ${outerDivTransforms} pointer-events-none`}>
       <NavMenu
-        className={`pointer-events-auto absolute ${sideTransforms[routeToSideMap[currentPath]].navMenu} z-0`}
+        className={`pointer-events-auto absolute ${navMenuTransforms} z-0`}
       />
       {/* Circle shape */}
       <Arc
         side={routeToSideMap[currentPath]}
-        className={`absolute ${sideTransforms[routeToSideMap[currentPath]].circleShape}`}
+        className={`absolute ${circleShapeTransforms}`}
       />
       {/*       <div
         className={`absolute h-[153vw] w-[153vw] rounded-full border-shape-main shadow-[inset_0_0_4px_6px,0_0_4px_6px] shadow-shape-main outline-shape-main ${sideTransforms[routeToSideMap[currentPath]].navMenu}`}

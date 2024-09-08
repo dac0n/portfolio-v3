@@ -66,7 +66,6 @@ export function rotatedRectangleBoundingBox(
 
   const boundingBoxWidth = width * cosTheta + height * sinTheta;
   const boundingBoxHeight = width * sinTheta + height * cosTheta;
-  console.log(boundingBoxWidth, boundingBoxHeight);
   return {
     width: boundingBoxWidth,
     height: boundingBoxHeight,

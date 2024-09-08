@@ -7,12 +7,11 @@ import { createRef, useState, useEffect, useLayoutEffect } from "react";
 import LinedButton from "@/components/lined-button/LinedBtn";
 import { ComponentOrientation } from "@/components/utils/enums";
 import { Frame } from "@/components/frame/Frame";
-import TransitionLink, { navigate } from "@/components/utils/TransitionLink";
 import { useRouter } from "next/navigation";
-import { MenuBtn } from "@/components/menu-btn/MenuBtn";
+import { useNavigation } from "@/hooks/useNavigation";
 
 export default function Home() {
-  const router = useRouter();
+  const { navigate } = useNavigation();
   const interactiveWindowRef = createRef<HTMLElement>();
 
   const { innerWidth, innerHeight } = useWindowSize();
@@ -37,15 +36,19 @@ export default function Home() {
             : "opacity-0"
         }`}
       >
-        <Frame isGroup={true} onClick={() => navigate(router, "/projects")}>
+        <Frame
+          className="cursor-pointer"
+          isGroup={true}
+          onClick={() => navigate("/projects")}
+        >
           <LinedButton>Projects </LinedButton>
         </Frame>
 
         <Frame isGroup={false} className="flex max-w-[50vh] flex-col">
           <Frame
             isGroup={true}
-            className="z-10"
-            onClick={() => navigate(router, "/get-in-touch")}
+            className="z-10 cursor-pointer"
+            onClick={() => navigate("/get-in-touch")}
           >
             <LinedButton orientation={ComponentOrientation.Vertical}>
               Get in touch
@@ -62,8 +65,8 @@ export default function Home() {
 
           <Frame
             isGroup={true}
-            className="z-10"
-            onClick={() => navigate(router, "/tech-stack")}
+            className="z-10 cursor-pointer"
+            onClick={() => navigate("/tech-stack")}
           >
             <LinedButton orientation={ComponentOrientation.Vertical}>
               Tech stack
@@ -71,7 +74,11 @@ export default function Home() {
           </Frame>
         </Frame>
 
-        <Frame isGroup={true} onClick={() => navigate(router, "/about")}>
+        <Frame
+          className="cursor-pointer"
+          isGroup={true}
+          onClick={() => navigate("/about")}
+        >
           <LinedButton>About me </LinedButton>
         </Frame>
       </div>

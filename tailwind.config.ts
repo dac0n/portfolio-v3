@@ -26,6 +26,10 @@ const config: Config = {
       colors: {
         ...colors,
       },
+      cursor: {
+        default: "url('/cursor5.svg'), default",
+        pointer: "url('/cursor_active.svg'), pointer",
+      },
     },
   },
   plugins: [
@@ -34,10 +38,7 @@ const config: Config = {
         extend: {
           // put the default values of any config you want themed
           // just as if you were to extend tailwind's theme like normal https://tailwindcss.com/docs/theme#extending-the-default-theme
-          cursor: {
-            default: "url('/cursor5.svg'), default",
-            pointer: "url('/cursor5.svg'), pointer",
-          },
+
           colors: {
             menuBtn: {
               text: {

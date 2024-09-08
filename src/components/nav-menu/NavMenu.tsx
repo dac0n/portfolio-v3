@@ -5,8 +5,6 @@ import { AppRoute } from "../utils/enums";
 import { MenuBtn } from "../menu-btn/MenuBtn";
 import { ThemeSwitchIcon } from "@/assets/svgeComponents/ThemeSwitch";
 import { HomeIcon } from "@/assets/svgeComponents/Home";
-import { useRouter, usePathname } from "next/navigation";
-import { navigate } from "../utils/TransitionLink";
 import {
   extractAngle,
   hoverable,
@@ -14,6 +12,7 @@ import {
 } from "../utils/helperFunctions";
 import { AngleClassName, ClassName } from "../utils/types";
 import { ClassNameValue } from "tailwind-merge";
+import { useNavigation } from "@/hooks/useNavigation";
 
 type MenuLocation = Exclude<AppRoute, "/">;
 
@@ -126,17 +125,17 @@ type NavMenuProps = {
 };
 
 export const NavMenu = ({ className }: NavMenuProps) => {
-  const router = useRouter();
-  const currentPath = usePathname() as MenuLocation;
+  const { navigate, currentRoute } = useNavigation();
+  const menuLocation = currentRoute as MenuLocation;
   const [activeBtn, setActiveBtn] = useState<keyof MenuBtns>("leftLong");
   const isButtonTextFlipped = (button: MenuNavBtn) =>
-    navMenuTransforms[currentPath].flip.includes(button.route);
+    navMenuTransforms[menuLocation].flip.includes(button.route);
 
   const menuLayout: MenuBtns = {
-    ...menuNavBtnsLayout[currentPath],
+    ...menuNavBtnsLayout[menuLocation],
     homeIcon: {
       onClick: () => {
-        navigate(router, "/");
+        navigate("/");
       },
     },
     themeSwitchIcon: {
@@ -146,12 +145,12 @@ export const NavMenu = ({ className }: NavMenuProps) => {
 
   useEffect(() => {
     setActiveBtn("leftLong");
-  }, [currentPath]);
+  }, [currentRoute]);
 
   const handlePress = (buttonName: keyof MenuBtns) => {
     const button = menuLayout[buttonName];
     if ("route" in button) {
-      navigate(router, button.route);
+      navigate(button.route);
     } else {
       button.onClick();
     }
@@ -160,7 +159,7 @@ export const NavMenu = ({ className }: NavMenuProps) => {
   const { width, height } = rotatedRectangleBoundingBox(
     318,
     319,
-    extractAngle(navMenuTransforms[currentPath].rotateClass),
+    extractAngle(navMenuTransforms[menuLocation].rotateClass),
   );
 
   return (
@@ -172,7 +171,7 @@ export const NavMenu = ({ className }: NavMenuProps) => {
       }}
     >
       <Frame
-        className={`relative h-[319px] w-[318px] flex-col ${navMenuTransforms[currentPath].rotateClass} ${navMenuTransforms[currentPath].offset}`}
+        className={`relative h-[319px] w-[318px] flex-col ${navMenuTransforms[menuLocation].rotateClass} ${navMenuTransforms[menuLocation].offset}`}
         style={{
           clipPath:
             "polygon(0 0, 80.8% 0, 100% 19.2%, 100% 100%, 79.7% 100%, 0 20.5%)",
