@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`h-screen w-screen cursor-default overflow-hidden bg-bgColor ${chakraPetch.variable} ${exo2.variable}`}
+        className={`h-screen w-screen animate-fade-in cursor-default overflow-hidden bg-bgColor ${chakraPetch.variable} ${exo2.variable}`}
       >
         <AppLayout>{children}</AppLayout>
       </body>

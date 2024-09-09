@@ -1,13 +1,11 @@
 "use client";
-import Image from "next/image";
 import { RotatingCircleIcon } from "@/assets/svgeComponents/RotatingCircle";
 import { useMouse } from "@/hooks/useMouse";
 import { useWindowSize } from "@/hooks/useWindowSize";
-import { createRef, useState, useEffect, useLayoutEffect } from "react";
+import { createRef, useState, useLayoutEffect } from "react";
 import LinedButton from "@/components/lined-button/LinedBtn";
 import { ComponentOrientation } from "@/components/utils/enums";
 import { Frame } from "@/components/frame/Frame";
-import { useRouter } from "next/navigation";
 import { useNavigation } from "@/hooks/useNavigation";
 
 export default function Home() {
@@ -22,23 +20,12 @@ export default function Home() {
       ? 0
       : Math.atan2(y - innerHeight / 2, x - innerWidth / 2) * (180 / Math.PI);
 
-  const [showContent, setShowContent] = useState(false);
-
-  useLayoutEffect(() => {
-    setShowContent(true);
-  }, []);
   return (
     <main
       ref={interactiveWindowRef}
       className="h-full w-full bg-black text-gray-50"
     >
-      <div
-        className={`flex h-full w-full ${
-          showContent
-            ? "opacity-100 transition-opacity duration-1000"
-            : "opacity-0"
-        }`}
-      >
+      <div className="flex h-full w-full">
         <Frame
           className="cursor-pointer"
           isGroup={true}

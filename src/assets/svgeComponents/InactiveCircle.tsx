@@ -8,9 +8,19 @@ export const InactiveCircle = (props: SVGProps<SVGSVGElement>) => {
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <circle cx="184" cy="184" r="179" stroke="white" stroke-width="2" />
+      <circle
+        cx="184"
+        cy="184"
+        r="179"
+        className="stroke-shape-alt stroke-[1px]"
+      />
       <g filter="url(#layer_blur)">
-        <circle cx="184" cy="184" r="179" stroke="white" stroke-width="2" />
+        <circle
+          cx="184"
+          cy="184"
+          r="179"
+          className="stroke-shape-alt stroke-[1px]"
+        />
       </g>
       <defs>
         <filter

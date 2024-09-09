@@ -18,15 +18,13 @@ export default function AppLayout({
   children: React.ReactNode;
 }>) {
   const currentRoute = usePathname() as AppRoute;
-  // const transitionContainer = document.getElementById("transition-container");
-  // const currentTransitionName = transitionContainer?.style.viewTransitionName;
   const shouldDisplayTransitionPlaceholder = currentRoute !== "/";
   return (
     <div
       id="transition-container"
-      className={`flex h-screen w-screen overflow-hidden bg-pink-900 ${shouldDisplayTransitionPlaceholder ? flexDirectionMap[transitionDirection[AppRoutes[currentRoute]] as Direction] : ""}`}
+      className={`flex h-screen w-screen overflow-hidden ${shouldDisplayTransitionPlaceholder ? flexDirectionMap[transitionDirection[AppRoutes[currentRoute]] as Direction] : ""}`}
     >
-      <div className="flex h-screen w-screen flex-none bg-pink-900">
+      <div className="flex h-screen w-screen flex-none">
         <NavLayout />
         {children}
       </div>

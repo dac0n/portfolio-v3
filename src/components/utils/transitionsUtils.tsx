@@ -13,11 +13,6 @@ type BodyTransitionName =
   | `transition-container-${Direction}`
   | `transition-container-${Direction}-${Direction}`;
 
-type TransitionNameParts =
-  | ["transition", "container", Direction]
-  | ["transition", "container", Direction, Direction]
-  | [""];
-
 export const getNewBodyTransitionName = (
   currentRoute: AppRoute,
   newRoute: AppRoute,

@@ -31,7 +31,7 @@ const LinedButton = ({
         className={`${isHorizontal ? "h-[1.5px] w-full" : "h-full w-[1.5px]"} ${isActive ? "bg-active" : "bg-inactive group-hover:bg-hovered"} transition-colors duration-300 ease-in-out`}
       />
       <div
-        className={`${isActive ? "text-active" : "text-inactive group-hover:text-hovered"} text-nowrap px-5 text-4xl leading-normal transition-colors duration-300 ease-in-out`}
+        className={`${isActive ? "text-active" : "text-inactive group-hover:text-hovered"} text-nowrap ${children && "px-5"} text-4xl leading-normal transition-colors duration-300 ease-in-out`}
       >
         {children && children}
       </div>
