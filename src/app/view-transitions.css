@@ -1,256 +1,347 @@
-@keyframes wait {
-  from,
-  to {
-    transform: none;
+@keyframes from-right-delayed {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
 
-@keyframes slide-to-right {
+@keyframes from-left-delayed {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes from-top-delayed {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes from-bottom-delayed {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes left-old {
   to {
     transform: translateX(100%);
   }
 }
 
-@keyframes half-slide-to-right {
-  to {
-    transform: translateX(50%);
+@keyframes left-new {
+  from {
+    transform: translateX(-100%);
   }
 }
 
-@keyframes slide-from-right {
+@keyframes right-old {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes right-new {
   from {
     transform: translateX(100%);
   }
 }
 
-@keyframes slide-to-left {
+@keyframes bottom-old {
   to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes bottom-new {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes top-old {
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes top-new {
+  from {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes left-left-old {
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes right-right-old {
+  50% {
     transform: translateX(-100%);
   }
-}
-
-@keyframes half-slide-to-left {
-  to {
-    transform: translateX(-50%);
+  100% {
+    transform: translateX(-200%);
   }
 }
 
-@keyframes slide-from-left {
-  from {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes slide-to-top {
-  to {
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes half-slide-to-top {
-  to {
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes slide-from-top {
-  from {
-    transform: translateY(-100%);
-  }
-}
-
-@keyframes slide-to-bottom {
-  to {
+@keyframes top-top-old {
+  50% {
     transform: translateY(100%);
   }
-}
-
-@keyframes half-slide-to-bottom {
-  to {
-    transform: translateY(100%);
+  100% {
+    transform: translateY(200%);
   }
 }
 
-@keyframes slide-from-bottom {
-  from {
-    transform: translateY(100%);
+@keyframes bottom-bottom-old {
+  50% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(-200%);
   }
 }
 
-::view-transition-old(body-transition-right) {
-  animation: slide-to-left 0.7s ease-in-out;
+@keyframes top-right-old {
+  50% {
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(-100%, 100%);
+  }
 }
 
-::view-transition-new(body-transition-right) {
-  animation: slide-from-right 0.7s ease-in-out;
+@keyframes top-left-old {
+  50% {
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(100%, 100%);
+  }
 }
 
-::view-transition-old(body-transition-right-top) {
-  animation: half-slide-to-left, slide-to-bottom;
-  animation-duration: 0.35s, 0.35s;
-  animation-delay: 0s, 0.35s;
+@keyframes bottom-right-old {
+  50% {
+    transform: translate(0, -100%);
+  }
+  100% {
+    transform: translate(-100%, -100%);
+  }
 }
 
-::view-transition-new(body-transition-right-top) {
-  animation-name: slide-from-top;
-  animation-duration: 0.35s;
-  animation-delay: 0.35s;
+@keyframes bottom-left-old {
+  50% {
+    transform: translate(0, -100%);
+  }
+  100% {
+    transform: translate(100%, -100%);
+  }
 }
 
-::view-transition-old(body-transition-right-bottom) {
-  animation: half-slide-to-left, slide-to-top;
-  animation-duration: 0.35s, 0.35s;
-  animation-delay: 0s, 0.35s;
+@keyframes left-top-old {
+  50% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate(100%, 100%);
+  }
 }
 
-::view-transition-new(body-transition-right-bottom) {
-  animation: slide-from-bottom;
-  animation-duration: 0.35s;
-  animation-delay: 0.35s;
+@keyframes left-bottom-old {
+  50% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate(100%, -100%);
+  }
 }
 
-::view-transition-old(body-transition-left) {
-  animation: slide-to-right 0.7s ease-in-out;
+@keyframes right-top-old {
+  50% {
+    transform: translate(-100%, 0);
+  }
+  100% {
+    transform: translate(-100%, 100%);
+  }
 }
 
-::view-transition-new(body-transition-left) {
-  animation: slide-from-left 0.7s ease-in-out;
+@keyframes right-bottom-old {
+  50% {
+    transform: translate(-100%, 0);
+  }
+  100% {
+    transform: translate(-100%, -100%);
+  }
 }
 
-::view-transition-old(body-transition-left-top) {
-  animation: half-slide-to-right, slide-to-bottom;
-  animation-duration: 0.35s, 0.35s;
-  animation-delay: 0s, 0.35s;
+::view-transition-old(transition-container-right) {
+  animation: right-old 0.75s ease-in-out;
 }
 
-::view-transition-new(body-transition-left-top) {
-  animation: slide-from-top;
-  animation-duration: 0.35s;
-  animation-delay: 0.35s;
+::view-transition-new(transition-container-right) {
+  overflow: hidden;
+  animation: right-new 0.75s ease-in-out;
 }
 
-::view-transition-old(body-transition-left-bottom) {
-  animation: half-slide-to-right, slide-to-top;
-  animation-duration: 0.35s, 0.35s;
-  animation-delay: 0s, 0.35s;
+::view-transition-old(transition-container-right-top) {
+  animation: right-top-old 0.75s ease-in-out;
 }
 
-::view-transition-new(body-transition-left-bottom) {
-  animation: slide-from-bottom;
-  animation-duration: 0.35s;
-  animation-delay: 0.35s;
+::view-transition-new(transition-container-right-top) {
+  overflow: hidden;
+  animation: from-top-delayed 0.75s ease-in-out;
 }
 
-::view-transition-old(body-transition-top) {
-  animation: slide-to-bottom 0.7s ease-in-out;
+::view-transition-old(transition-container-right-bottom) {
+  animation: right-bottom-old 0.75s ease-in-out;
 }
 
-::view-transition-new(body-transition-top) {
-  animation: slide-from-top 0.7s ease-in-out;
+::view-transition-new(transition-container-right-bottom) {
+  overflow: hidden;
+  animation: from-bottom-delayed 0.75s ease-in-out;
 }
 
-::view-transition-old(body-transition-top-left) {
-  animation: half-slide-to-bottom, slide-to-right;
-  animation-duration: 0.35s, 0.35s;
-  animation-delay: 0s, 0.35s;
+::view-transition-old(transition-container-left) {
+  animation: left-old 0.75s ease-in-out;
 }
 
-::view-transition-new(body-transition-top-left) {
-  animation: slide-from-left;
-  animation-duration: 0.35s;
-  animation-delay: 0.35s;
+::view-transition-new(transition-container-left) {
+  overflow: hidden;
+  animation: left-new 0.75s ease-in-out;
 }
 
-::view-transition-old(body-transition-top-right) {
-  animation: half-slide-to-bottom, slide-to-left;
-  animation-duration: 0.35s, 0.35s;
-  animation-delay: 0s, 0.35s;
+::view-transition-old(transition-container-left-top) {
+  animation: left-top-old 0.75s ease-in-out;
 }
 
-::view-transition-new(body-transition-top-right) {
-  animation: slide-from-right;
-  animation-duration: 0.35s;
-  animation-delay: 0.35s;
+::view-transition-new(transition-container-left-top) {
+  overflow: hidden;
+  animation: from-top-delayed 0.75s ease-in-out;
 }
 
-::view-transition-old(body-transition-bottom) {
-  animation: slide-to-top 0.7s ease-in-out;
+::view-transition-old(transition-container-left-bottom) {
+  animation: left-bottom-old 0.75s ease-in-out;
 }
 
-::view-transition-new(body-transition-bottom) {
-  animation: slide-from-bottom 0.7s ease-in-out;
+::view-transition-new(transition-container-left-bottom) {
+  overflow: hidden;
+  animation: from-bottom-delayed 0.75s ease-in-out;
 }
 
-::view-transition-old(body-transition-bottom-right) {
-  animation:
-    half-slide-to-bottom 0.35s,
-    slide-to-left;
-  animation-duration: 0.35s, 0.35s;
-  animation-delay: 0s, 0.35s;
+::view-transition-old(transition-container-top) {
+  animation: top-old 0.75s ease-in-out;
 }
 
-::view-transition-new(body-transition-bottom-right) {
-  animation: slide-from-right;
-  animation-duration: 0.35s;
-  animation-delay: 0.35s;
+::view-transition-new(transition-container-top) {
+  overflow: hidden;
+  animation: top-new 0.75s ease-in-out;
 }
 
-::view-transition-old(body-transition-bottom-left) {
-  animation: half-slide-to-bottom, slide-to-right;
-  animation-duration: 0.35s, 0.35s;
-  animation-delay: 0s, 0.35s;
+::view-transition-old(transition-container-top-left) {
+  animation: top-left-old 0.75s ease-in-out;
 }
 
-::view-transition-new(body-transition-bottom-left) {
-  animation: slide-from-left 0.35s;
-  animation-duration: 0.35s;
-  animation-delay: 0.35s;
+::view-transition-new(transition-container-top-left) {
+  overflow: hidden;
+  animation: from-left-delayed 0.75s ease-in-out;
 }
 
-::view-transition-old(body-transition-left-left) {
-  animation: half-slide-to-right, half-slide-to-right;
-  animation-duration: 0.35s, 0.35s;
-  animation-delay: 0s, 0.35s;
+::view-transition-old(transition-container-top-right) {
+  animation: top-right-old 0.75s ease-in-out;
 }
 
-::view-transition-new(body-transition-left-left) {
-  animation: slide-from-left;
-  animation-duration: 0.35s;
-  animation-delay: 0.35s;
+::view-transition-new(transition-container-top-right) {
+  overflow: hidden;
+  animation: from-right-delayed 0.75s ease-in-out;
 }
 
-::view-transition-old(body-transition-right-right) {
-  animation: half-slide-to-left, half-slide-to-left;
-  animation-duration: 0.35s, 0.35s;
-  animation-delay: 0s, 0.35s;
+::view-transition-old(transition-container-bottom) {
+  animation: bottom-old 0.75s ease-in-out;
 }
 
-::view-transition-new(body-transition-right-right) {
-  animation: slide-from-right;
-  animation-duration: 0.35s;
-  animation-delay: 0.35s;
+::view-transition-new(transition-container-bottom) {
+  overflow: hidden;
+  animation: bottom-new 0.75s ease-in-out;
 }
 
-::view-transition-old(body-transition-top-top) {
-  animation: half-slide-to-bottom, half-slide-to-bottom;
-  animation-duration: 0.35s, 0.35s;
-  animation-delay: 0s, 0.35s;
+::view-transition-old(transition-container-bottom-right) {
+  animation: bottom-right-old 0.75s ease-in-out;
 }
 
-::view-transition-new(body-transition-top-top) {
-  animation: slide-from-top;
-  animation-duration: 0.35s;
-  animation-delay: 0.35s;
+::view-transition-new(transition-container-bottom-right) {
+  overflow: hidden;
+  animation: from-right-delayed 0.75s ease-in-out;
 }
 
-::view-transition-old(body-transition-bottom-bottom) {
-  animation: half-slide-to-top, half-slide-to-top;
-  animation-duration: 0.35s, 0.35s;
-  animation-delay: 0s, 0.35s;
+::view-transition-old(transition-container-bottom-left) {
+  animation: bottom-left-old 0.75s ease-in-out;
 }
 
-::view-transition-new(body-transition-bottom-bottom) {
-  animation: slide-from-bottom;
-  animation-duration: 0.35s;
-  animation-delay: 0.35s;
+::view-transition-new(transition-container-bottom-left) {
+  overflow: hidden;
+  animation: from-left-delayed 0.75s ease-in-out;
+}
+
+::view-transition-old(transition-container-left-left) {
+  animation: left-left-old 0.75s ease-in-out;
+}
+
+::view-transition-new(transition-container-left-left) {
+  overflow: hidden;
+  animation: from-left-delayed 0.75s ease-in-out;
+}
+
+::view-transition-old(transition-container-right-right) {
+  animation: right-right-old 0.75s ease-in-out;
+}
+
+::view-transition-new(transition-container-right-right) {
+  animation: from-right-delayed 0.75s ease-in-out;
+  overflow: hidden;
+}
+
+::view-transition-old(transition-container-top-top) {
+  animation: top-top-old 0.75s ease-in-out;
+}
+
+::view-transition-new(transition-container-top-top) {
+  overflow: hidden;
+  animation: from-top-delayed 0.75s ease-in-out;
+}
+
+::view-transition-old(transition-container-bottom-bottom) {
+  animation: bottom-bottom-old 0.75s ease-in-out;
+}
+
+::view-transition-new(transition-container-bottom-bottom) {
+  overflow: hidden;
+  animation: from-bottom-delayed 0.75s ease-in-out;
 }

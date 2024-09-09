@@ -28,7 +28,10 @@ export default function Home() {
     setShowContent(true);
   }, []);
   return (
-    <main ref={interactiveWindowRef} className="h-full bg-black text-gray-50">
+    <main
+      ref={interactiveWindowRef}
+      className="h-full w-full bg-black text-gray-50"
+    >
       <div
         className={`flex h-full w-full ${
           showContent

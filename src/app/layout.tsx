@@ -2,6 +2,7 @@ import NavLayout from "@/components/nav-layout/NavLayout";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Chakra_Petch, Exo_2 } from "next/font/google";
+import AppLayout from "@/components/app-layout/AppLayout";
 
 const chakraPetch = Chakra_Petch({
   weight: ["300", "400", "500", "600", "700"],
@@ -27,10 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`h-screen cursor-default overflow-hidden bg-bgColor ${chakraPetch.variable} ${exo2.variable}`}
+        className={`h-screen w-screen cursor-default overflow-hidden bg-bgColor ${chakraPetch.variable} ${exo2.variable}`}
       >
-        <NavLayout />
-        {children}
+        <AppLayout>{children}</AppLayout>
       </body>
     </html>
   );

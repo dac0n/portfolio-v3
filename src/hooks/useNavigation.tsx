@@ -6,12 +6,20 @@ import { useRouter, usePathname } from "next/navigation";
 import { useCallback } from "react";
 
 function switchTransitionType(currentRoute: AppRoute, newRoute: AppRoute) {
+  const transitionContainer = document.getElementById("transition-container");
+
   const newBodyTransitionName = getNewBodyTransitionName(
     currentRoute,
     newRoute,
   );
   console.log(newBodyTransitionName);
-  document.body.style.viewTransitionName = newBodyTransitionName ?? "";
+  if (!transitionContainer)
+    console.error(
+      "Transition container not found, error source: useNavigation.tsx",
+    );
+  else {
+    transitionContainer.style.viewTransitionName = newBodyTransitionName ?? "";
+  }
 }
 
 export const useNavigation = () => {
@@ -26,10 +34,21 @@ export const useNavigation = () => {
         );
         router.push(newRoute);
       } else {
-        switchTransitionType(currentRoute, newRoute);
-        document.startViewTransition(() => {
-          router.push(newRoute);
-        });
+        const transitionContainer = document.getElementById(
+          "transition-container",
+        );
+        if (!transitionContainer)
+          console.error(
+            "Transition container not found. Check NavLayout.tsx for transition-container id.",
+          );
+        else {
+          transitionContainer.style.overflow = "visible";
+          switchTransitionType(currentRoute, newRoute);
+          const transition = document.startViewTransition(() => {
+            router.push(newRoute);
+          });
+          transition.finished.then(() => {});
+        }
       }
     },
     [currentRoute, router],

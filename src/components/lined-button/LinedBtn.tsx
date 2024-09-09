@@ -5,12 +5,12 @@ import { twMerge } from "tailwind-merge";
 
 type LineButtonProps = {
   orientation?: ComponentOrientation;
-  children: ReactNode;
+  children?: ReactNode;
   isActive?: boolean;
   className?: ClassName;
 };
 
-const LineButton = ({
+const LinedButton = ({
   orientation = ComponentOrientation.Horizontal,
   children,
   isActive,
@@ -33,7 +33,7 @@ const LineButton = ({
       <div
         className={`${isActive ? "text-active" : "text-inactive group-hover:text-hovered"} text-nowrap px-5 text-4xl leading-normal transition-colors duration-300 ease-in-out`}
       >
-        {children}
+        {children && children}
       </div>
       <div
         className={`${isHorizontal ? "h-[1.5px] w-full" : "h-full w-[1.5px]"} ${isActive ? "bg-active" : "bg-inactive group-hover:bg-hovered"} transition-colors duration-300 ease-in-out`}
@@ -42,4 +42,4 @@ const LineButton = ({
   );
 };
 
-export default LineButton;
+export default LinedButton;

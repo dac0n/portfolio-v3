@@ -1,5 +1,5 @@
-import NavLayout from "@/components/nav-layout/nav-layout";
-
 export default function About() {
-  return <main className="flex h-screen w-screen flex-col text-center"></main>;
+  return (
+    <main className="flex h-screen w-screen flex-col bg-green-500 text-center"></main>
+  );
 }

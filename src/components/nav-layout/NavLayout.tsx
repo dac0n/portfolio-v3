@@ -75,9 +75,6 @@ const NavLayout = () => {
         side={routeToSideMap[currentPath]}
         className={`absolute ${circleShapeTransforms}`}
       />
-      {/*       <div
-        className={`absolute h-[153vw] w-[153vw] rounded-full border-shape-main shadow-[inset_0_0_4px_6px,0_0_4px_6px] shadow-shape-main outline-shape-main ${sideTransforms[routeToSideMap[currentPath]].navMenu}`}
-      /> */}
     </div>
   );
 };
