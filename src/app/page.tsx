@@ -43,7 +43,7 @@ export default function Home() {
           </Frame>
 
           <Frame className="pointer-events-none relative z-0 h-auto">
-            <Frame className="text-p[2em] absolute flex h-[56%] w-3/4 flex-col flex-nowrap justify-between font-chakraPetch font-semibold text-nonInteractive">
+            <Frame className="absolute flex h-[56%] w-3/4 flex-col flex-nowrap justify-between font-chakraPetch text-[2em] font-semibold text-nonInteractive">
               <div>Hi! It’s Daniel.</div>
               <div>A full-stack web dev.</div>
             </Frame>
