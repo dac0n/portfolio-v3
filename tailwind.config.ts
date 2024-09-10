@@ -8,6 +8,8 @@ export const colors = {
   darkBlue: "#001417",
   black: "#000000",
   neonBlue: "#00FFFF",
+  olive: "#AA8410",
+  selectiveYellow: "#FFB800",
 };
 
 const config: Config = {
@@ -51,7 +53,6 @@ const config: Config = {
         extend: {
           // put the default values of any config you want themed
           // just as if you were to extend tailwind's theme like normal https://tailwindcss.com/docs/theme#extending-the-default-theme
-
           colors: {
             menuBtn: {
               text: {
@@ -90,6 +91,12 @@ const config: Config = {
             shape: {
               main: colors.neonBlue,
               alt: colors.white,
+            },
+            icons: {
+              processor: {
+                gradientColor1: colors.olive,
+                gradientColor2: colors.selectiveYellow,
+              },
             },
             hovered: colors.white,
             nonInteractive: colors.white,

@@ -8,6 +8,9 @@ type LineButtonProps = {
   children?: ReactNode;
   isActive?: boolean;
   className?: ClassName;
+  textStyle?: ClassName;
+  showLeftLine?: boolean;
+  showRightLine?: boolean;
 };
 
 const LinedButton = ({
@@ -15,6 +18,9 @@ const LinedButton = ({
   children,
   isActive,
   className,
+  textStyle,
+  showLeftLine = true,
+  showRightLine = true,
 }: LineButtonProps) => {
   const isHorizontal = orientation === ComponentOrientation.Horizontal;
 
@@ -23,21 +29,45 @@ const LinedButton = ({
       className={twMerge(
         `flex ${
           isHorizontal ? "w-full flex-row" : "h-full flex-col"
-        } items-center justify-center`,
+        } relative items-center justify-center`,
         className,
       )}
     >
+      {showLeftLine && (
+        <div className={`${isHorizontal ? "w-full" : "flex h-full"}`}>
+          <div
+            className={`${isHorizontal ? "h-[1px] w-full" : "h-full w-[1px]"} ${
+              isActive ? "bg-active" : "bg-inactive group-hover:bg-hovered"
+            } origin-center transition-colors duration-300 ease-in-out`}
+          />
+          <div
+            className={`${isHorizontal ? "bottom-[1px] h-[1px] w-full" : "right-[1px] h-full w-[1px]"} ${
+              isActive ? "bg-active" : "bg-inactive group-hover:bg-hovered"
+            } relative blur-sm transition-colors duration-300 ease-in-out`}
+          />
+        </div>
+      )}
       <div
-        className={`${isHorizontal ? "h-[1.5px] w-full" : "h-full w-[1.5px]"} ${isActive ? "bg-active" : "bg-inactive group-hover:bg-hovered"} transition-colors duration-300 ease-in-out`}
-      />
-      <div
-        className={`${isActive ? "text-active" : "text-inactive group-hover:text-hovered"} text-nowrap ${children && "px-5"} text-4xl leading-normal transition-colors duration-300 ease-in-out`}
+        className={`${
+          isActive ? "text-active" : "text-inactive group-hover:text-hovered"
+        } ${twMerge(`${children && "px-5"} text-nowrap text-4xl leading-normal`, textStyle)} z-10 transition-colors duration-300 ease-in-out`}
       >
         {children && children}
       </div>
-      <div
-        className={`${isHorizontal ? "h-[1.5px] w-full" : "h-full w-[1.5px]"} ${isActive ? "bg-active" : "bg-inactive group-hover:bg-hovered"} transition-colors duration-300 ease-in-out`}
-      />
+      {showRightLine && (
+        <div className={`${isHorizontal ? "w-full" : "flex h-full"}`}>
+          <div
+            className={`${isHorizontal ? "h-[1px] w-full" : "h-full w-[1px]"} ${
+              isActive ? "bg-active" : "bg-inactive group-hover:bg-hovered"
+            } origin-center transition-colors duration-300 ease-in-out`}
+          />
+          <div
+            className={`${isHorizontal ? "bottom-[1px] h-[1px] w-full" : "right-[1px] h-full w-[1px]"} ${
+              isActive ? "bg-active" : "bg-inactive group-hover:bg-hovered"
+            } relative blur-sm transition-colors duration-300 ease-in-out`}
+          />
+        </div>
+      )}
     </div>
   );
 };

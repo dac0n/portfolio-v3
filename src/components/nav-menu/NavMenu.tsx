@@ -11,7 +11,6 @@ import {
   rotatedRectangleBoundingBox,
 } from "../utils/helperFunctions";
 import { AngleClassName, ClassName } from "../utils/types";
-import { ClassNameValue } from "tailwind-merge";
 import { useNavigation } from "@/hooks/useNavigation";
 
 type MenuLocation = Exclude<AppRoute, "/">;

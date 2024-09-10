@@ -21,10 +21,7 @@ export default function Home() {
       : Math.atan2(y - innerHeight / 2, x - innerWidth / 2) * (180 / Math.PI);
 
   return (
-    <main
-      ref={interactiveWindowRef}
-      className="h-full w-full bg-black text-gray-50"
-    >
+    <main ref={interactiveWindowRef} className="h-full w-full text-gray-50">
       <div className="flex h-full w-full">
         <Frame
           className="cursor-pointer"
@@ -46,6 +43,10 @@ export default function Home() {
           </Frame>
 
           <Frame className="pointer-events-none relative z-0 h-auto">
+            <Frame className="text-p[2em] absolute flex h-[56%] w-3/4 flex-col flex-nowrap justify-between font-chakraPetch font-semibold text-nonInteractive">
+              <div>Hi! It’s Daniel.</div>
+              <div>A full-stack web dev.</div>
+            </Frame>
             <RotatingCircleIcon
               style={{
                 transform: `rotate(${rotationDegree}deg)`,
