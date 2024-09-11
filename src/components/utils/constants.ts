@@ -42,15 +42,14 @@ export enum PROJECT_NAMES {
   Matrixsoftlabs = "Matrixsoftlabs",
 }
 
-export enum PROJECT_LOGO_SOURCES {
-  HBT = "/Hbt.svg",
-  Cosafe = "/Cosafe.svg",
-  Coyards = "/Coyards.svg",
-  OneTouch = "/1Touch.svg",
-  Current = "/Current.svg",
-  Matrixsoftlabs = "/Matrixsoftlabs.svg",
-}
-
+export const PROJECT_LOGO_SOURCES = {
+  [PROJECT_NAMES.HBT]: "/Hbt.svg",
+  [PROJECT_NAMES.Cosafe]: "/Cosafe.svg",
+  [PROJECT_NAMES.Coyards]: "/Coyards.svg",
+  [PROJECT_NAMES.OneTouch]: "/1Touch.svg",
+  [PROJECT_NAMES.Current]: "/CurrentWebsite.svg",
+  [PROJECT_NAMES.Matrixsoftlabs]: "/Matrixsoftlabs.svg",
+};
 export enum TECH_LOGO_SOURCES {
   React = "/React.svg",
   Typescript = "/Typescript.svg",

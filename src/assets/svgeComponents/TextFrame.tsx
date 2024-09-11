@@ -49,9 +49,9 @@ export const TextFrame = ({
           width="344"
           height="238"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" />
+          <feFlood floodOpacity="0" />
           <feBlend
             mode="normal"
             in="SourceGraphic"

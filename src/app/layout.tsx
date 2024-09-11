@@ -1,8 +1,8 @@
-import NavLayout from "@/components/nav-layout/NavLayout";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Chakra_Petch, Exo_2 } from "next/font/google";
 import AppLayout from "@/components/app-layout/AppLayout";
+import Script from "next/script";
 
 const chakraPetch = Chakra_Petch({
   weight: ["300", "400", "500", "600", "700"],
@@ -31,6 +31,15 @@ export default function RootLayout({
         className={`h-screen w-screen animate-fade-in cursor-default overflow-hidden bg-bgColor ${chakraPetch.variable} ${exo2.variable}`}
       >
         <AppLayout>{children}</AppLayout>
+        <Script id="speculationrules" type="speculationrules">
+          {`{
+  "prerender": [
+    {
+      "urls": ["/tech-stack", "/get-in-touch", "/projects", "/about"]
+    }
+  ]
+}`}
+        </Script>
       </body>
     </html>
   );

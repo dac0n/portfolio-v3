@@ -1,5 +1,6 @@
 "use client";
 
+import { Divider } from "@/assets/svgeComponents/Divider";
 import { TechLogo } from "@/assets/svgeComponents/TechLogo";
 import { TextFrame } from "@/assets/svgeComponents/TextFrame";
 import { Frame } from "@/components/frame/Frame";
@@ -9,6 +10,7 @@ import {
   TECH_NAMES,
   TECHNOLOGY_TYPES,
   TechType,
+  PROJECT_LOGO_SOURCES,
 } from "@/components/utils/constants";
 import { useState } from "react";
 
@@ -20,6 +22,7 @@ export default function TechStack() {
     keyof typeof TECH_NAMES | null
   >(null);
 
+  const activeTechInfo = activeTech && techCatalog[TECH_NAMES[activeTech]];
   const leftColumnActive =
     activeTech &&
     TECHNOLOGY_TYPES[TECH_NAMES[activeTech]] === TechType.Frontend;
@@ -35,6 +38,7 @@ export default function TechStack() {
   }) => {
     return (
       <LinedButton
+        key={`logo-${type}`}
         textStyle="px-0 mx-[-4px]"
         showLeftLine={inRightColumn}
         showRightLine={!inRightColumn}
@@ -62,6 +66,7 @@ export default function TechStack() {
     inRightColumn?: boolean;
   }) => (
     <LinedButton
+      key={`title-${type}`}
       textStyle={`tech-${type} px-0 text-[20px] leading-[40px] h-[40px] font-exo2 ${
         inRightColumn ? "ml-[10px]" : "mr-[10px]"
       }`}
@@ -117,7 +122,7 @@ export default function TechStack() {
             />
           </div>
         </Frame>
-        <Frame className="flex h-fit w-full max-w-[700px] flex-col items-start justify-start p-12">
+        <Frame className="flex h-fit w-full max-w-[700px] flex-col items-start justify-start gap-12 p-12">
           <TextFrame className="text-active">
             {!activeTech ? (
               <div className="font-chakraPetch">
@@ -138,6 +143,26 @@ export default function TechStack() {
               </div>
             )}
           </TextFrame>
+          <div className="flex w-full flex-col">
+            <Divider />
+            <div className="flex flex-row justify-between">
+              <div className="flex items-center font-exo2 text-[24px] font-semibold leading-[60px] text-inactive">
+                Used at projects:
+              </div>
+              <div className="flex flex-grow flex-row justify-center gap-2">
+                {activeTechInfo &&
+                  activeTechInfo.usedAtProjects.map((tech) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      className=""
+                      key={tech}
+                      alt={tech}
+                      src={PROJECT_LOGO_SOURCES[tech]}
+                    />
+                  ))}
+              </div>
+            </div>
+          </div>
         </Frame>
         <Frame className="w-fit">
           <div className="mr-[20px] flex h-full">
