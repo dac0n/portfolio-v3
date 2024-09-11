@@ -31,15 +31,6 @@ export default function RootLayout({
         className={`h-screen w-screen animate-fade-in cursor-default overflow-hidden bg-bgColor ${chakraPetch.variable} ${exo2.variable}`}
       >
         <AppLayout>{children}</AppLayout>
-        <Script id="speculationrules" type="speculationrules">
-          {`{
-  "prerender": [
-    {
-      "urls": ["/tech-stack", "/get-in-touch", "/projects", "/about"]
-    }
-  ]
-}`}
-        </Script>
       </body>
     </html>
   );

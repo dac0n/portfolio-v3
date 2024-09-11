@@ -7,6 +7,8 @@ import LinedButton from "@/components/lined-button/LinedBtn";
 import { ComponentOrientation } from "@/components/utils/enums";
 import { Frame } from "@/components/frame/Frame";
 import { useNavigation } from "@/hooks/useNavigation";
+import Link from "next/link";
+import TransitionLink from "@/components/utils/TransitionLink";
 
 export default function Home() {
   const { navigate } = useNavigation();
@@ -23,24 +25,21 @@ export default function Home() {
   return (
     <main ref={interactiveWindowRef} className="h-full w-full text-gray-50">
       <div className="flex h-full w-full">
-        <Frame
-          className="cursor-pointer"
-          isGroup={true}
-          onClick={() => navigate("/projects")}
+        <TransitionLink
+          href="/projects"
+          className="group flex h-full w-full items-center justify-center"
         >
-          <LinedButton>Projects </LinedButton>
-        </Frame>
-
+          <LinedButton>Projects</LinedButton>
+        </TransitionLink>
         <Frame isGroup={false} className="flex max-w-[50vh] flex-col">
-          <Frame
-            isGroup={true}
-            className="z-10 cursor-pointer"
-            onClick={() => navigate("/get-in-touch")}
+          <TransitionLink
+            href="/get-in-touch"
+            className="group flex h-full w-full items-center justify-center"
           >
             <LinedButton orientation={ComponentOrientation.Vertical}>
               Get in touch
             </LinedButton>
-          </Frame>
+          </TransitionLink>
 
           <Frame className="pointer-events-none relative z-0 h-auto">
             <Frame className="absolute flex h-[56%] w-3/4 flex-col flex-nowrap justify-between font-chakraPetch text-[2em] font-semibold text-nonInteractive">
@@ -54,24 +53,22 @@ export default function Home() {
             />
           </Frame>
 
-          <Frame
-            isGroup={true}
-            className="z-10 cursor-pointer"
-            onClick={() => navigate("/tech-stack")}
+          <TransitionLink
+            href="/tech-stack"
+            className="group flex h-full w-full items-center justify-center"
           >
             <LinedButton orientation={ComponentOrientation.Vertical}>
               Tech stack
             </LinedButton>
-          </Frame>
+          </TransitionLink>
         </Frame>
 
-        <Frame
-          className="cursor-pointer"
-          isGroup={true}
-          onClick={() => navigate("/about")}
+        <TransitionLink
+          href="/about"
+          className="group flex h-full w-full items-center justify-center"
         >
           <LinedButton>About me </LinedButton>
-        </Frame>
+        </TransitionLink>
       </div>
     </main>
   );

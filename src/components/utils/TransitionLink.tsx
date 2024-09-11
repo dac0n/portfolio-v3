@@ -2,14 +2,20 @@
 import Link from "next/link";
 import { AppRoute, Direction } from "./enums";
 import { useNavigation } from "@/hooks/useNavigation";
+import { ClassName } from "./types";
 
 type TransitionLinkProps = {
   href: AppRoute;
+  className?: ClassName;
   children: React.ReactNode;
   transitionDirection?: Direction;
 };
 
-export const TransitionLink = ({ href, children }: TransitionLinkProps) => {
+export const TransitionLink = ({
+  href,
+  children,
+  className,
+}: TransitionLinkProps) => {
   const { navigate } = useNavigation();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -17,7 +23,7 @@ export const TransitionLink = ({ href, children }: TransitionLinkProps) => {
     navigate(href);
   };
   return (
-    <Link href={href} onClick={handleClick}>
+    <Link href={href} className={className} onClick={handleClick}>
       {children}
     </Link>
   );
