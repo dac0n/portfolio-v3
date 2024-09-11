@@ -146,10 +146,10 @@ export default function TechStack() {
           <div className="flex w-full flex-col">
             <Divider />
             <div className="flex flex-row justify-between">
-              <div className="flex items-center font-exo2 text-[24px] font-semibold leading-[60px] text-inactive">
+              <div className="flex items-center text-nowrap font-exo2 text-[24px] font-semibold leading-[60px] text-inactive">
                 Used at projects:
               </div>
-              <div className="flex flex-grow flex-row justify-center gap-2">
+              <div className="flex flex-grow flex-row flex-wrap justify-center gap-2">
                 {activeTechInfo &&
                   activeTechInfo.usedAtProjects.map((tech) => (
                     // eslint-disable-next-line @next/next/no-img-element
