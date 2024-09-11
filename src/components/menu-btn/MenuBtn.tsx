@@ -32,7 +32,7 @@ export const MenuBtn = ({
   return (
     <Frame
       className={twMerge(
-        `group/button flex h-[64px] w-full flex-row transition-colors hover:z-30`,
+        `group/button flex h-[64px] w-full cursor-pointer flex-row hover:z-30`, //transition-colors
         className,
       )}
       onClick={onClick}
@@ -50,7 +50,7 @@ export const MenuBtn = ({
             isActive
               ? "border-menuBtn-outline-active"
               : "border-menuBtn-outline-inactive group-hover/button:border-menuBtn-outline-hovered"
-          } spacing box-border border border-b-[1px] border-l-0 border-r-0 border-t-[1px] font-chakraPetch text-base font-semibold uppercase ${flipText ? "rotate-180" : ""} ${isActive ? "bg-menuBtn-bg-active text-menuBtn-text-active" : "bg-menuBtn-bg-inactive text-menuBtn-text-inactive group-hover/button:bg-menuBtn-bg-hovered group-hover/button:text-menuBtn-text-hovered"} text-nowrap text-center transition-colors duration-300 ease-in-out`}
+          } spacing box-border border border-b-[1px] border-l-0 border-r-0 border-t-[1px] font-chakraPetch text-base font-semibold uppercase ${flipText ? "rotate-180" : ""} ${isActive ? "bg-menuBtn-bg-active text-menuBtn-text-active" : "bg-menuBtn-bg-inactive text-menuBtn-text-inactive group-hover/button:bg-menuBtn-bg-hovered group-hover/button:text-menuBtn-text-hovered"} text-nowrap text-center ${/*transition-colors duration-300 ease-in */ ""}`}
         >
           {children}
         </Frame>

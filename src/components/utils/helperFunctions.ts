@@ -1,7 +1,7 @@
 import { AngleClassName, ClassName } from "./types";
 
 // for button elements
-export const hoverable = (
+export const hoverableBtn = (
   isActive: boolean,
   type: "bg" | "outline" | "text",
   color?: "bg" | "outline" | "text",

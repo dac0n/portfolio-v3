@@ -25,7 +25,6 @@ function switchTransitionType(currentRoute: AppRoute, newRoute: AppRoute) {
 export const useNavigation = () => {
   const router = useRouter();
   const currentRoute = usePathname() as AppRoute;
-
   const navigate = useCallback(
     (newRoute: AppRoute) => {
       if (!document.startViewTransition) {

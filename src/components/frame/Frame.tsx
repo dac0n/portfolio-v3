@@ -18,6 +18,7 @@ export const Frame = ({
   isGroup = false,
   onClick,
   style,
+  ...rest
 }: FrameProps) => {
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement | HTMLDivElement>,

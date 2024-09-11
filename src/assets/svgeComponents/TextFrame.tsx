@@ -1,0 +1,66 @@
+import { Frame } from "@/components/frame/Frame";
+import { ClassName } from "@/components/utils/types";
+import { SVGProps } from "react";
+import { twMerge } from "tailwind-merge";
+
+type TextFrameProps = {
+  textStyle?: ClassName;
+  className?: ClassName;
+} & SVGProps<SVGSVGElement>;
+
+export const TextFrame = ({
+  textStyle,
+  className,
+  ...rest
+}: TextFrameProps) => {
+  return (
+    <svg
+      viewBox="0 0 344 238"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={twMerge("", className)}
+      {...rest}
+    >
+      <path
+        d="M282 9H282.207L282.354 8.85355L286.207 5H323.793L339.5 20.7071V218.293L323.793 234H292.207L288.354 230.146L288.207 230H288H56H55.7929L55.6464 230.146L51.7929 234H20.2071L4.5 218.293V119.717L8.34197 116.115L8.5 115.967V115.75V49V48.7834L8.34197 48.6352L4.5 45.0334V20.7071L20.2071 5H209.793L213.646 8.85355L213.793 9H214H282Z"
+        className="stroke-shape-main"
+      />
+      <g filter="url(#filter0_f_868_2253)">
+        <path
+          d="M282 8.5H282.207L282.354 8.35355L286.207 4.5H323.793L339.5 20.2071V217.793L323.793 233.5H292.207L288.354 229.646L288.207 229.5H288H56H55.7929L55.6464 229.646L51.7929 233.5H20.2071L4.5 217.793V119.217L8.34197 115.615L8.5 115.467V115.25V48.5V48.2834L8.34197 48.1352L4.5 44.5334V20.2071L20.2071 4.5H209.793L213.646 8.35355L213.793 8.5H214H282Z"
+          className="stroke-shape-main"
+        />
+      </g>
+      <foreignObject x="20" y="20" width="309" className="h-full">
+        <div
+          className={twMerge(
+            "inline-block items-start justify-start",
+            textStyle,
+          )}
+        >
+          {rest.children}
+        </div>
+      </foreignObject>
+      <defs>
+        <filter
+          id="filter0_f_868_2253"
+          x="0"
+          y="0"
+          width="344"
+          height="238"
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" />
+          <feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          />
+          <feGaussianBlur stdDeviation="2" />
+        </filter>
+      </defs>
+    </svg>
+  );
+};

@@ -1,13 +1,23 @@
-import { SVGProps } from "react";
+import { CSSProperties, SVGProps } from "react";
 import Image from "next/image";
 import { Frame } from "@/components/frame/Frame";
-import { LogoSource, TechName } from "@/components/utils/constants";
+import { TechLogoSource, TechName } from "@/components/utils/constants";
+import { twMerge } from "tailwind-merge";
 
 type TechLogoProps = SVGProps<SVGSVGElement> & {
   type: keyof typeof TechName;
+  frameStyle?: CSSProperties;
+  isHovered?: boolean;
+  isActive?: boolean;
 };
 
-export const TechLogo = ({ type, ...rest }: TechLogoProps) => {
+export const TechLogo = ({
+  type,
+  frameStyle,
+  isActive,
+  isHovered,
+  ...rest
+}: TechLogoProps) => {
   return (
     <svg
       viewBox="0 0 122 122"
@@ -26,7 +36,14 @@ export const TechLogo = ({ type, ...rest }: TechLogoProps) => {
           width="113"
           height="113"
           rx="4.5"
-          stroke="#6B728E"
+          className={
+            isActive
+              ? "stroke-active"
+              : isHovered
+                ? "stroke-hovered"
+                : "stroke-inactive"
+          }
+          style={frameStyle}
         />
       </g>
       <rect
@@ -35,14 +52,21 @@ export const TechLogo = ({ type, ...rest }: TechLogoProps) => {
         width="113"
         height="113"
         rx="4.5"
-        stroke="#6B728E"
+        className={`${
+          isActive
+            ? "stroke-active"
+            : isHovered
+              ? "stroke-hovered"
+              : "stroke-inactive"
+        } duration-300 ease-in-out`}
+        style={frameStyle}
       />
       <foreignObject x="26" y="26" width="70" height="70">
         <Frame className="flex items-center">
           <Image
             width={54}
             height={54}
-            src={LogoSource[type]}
+            src={TechLogoSource[type]}
             alt="Picture of the author"
           />
         </Frame>

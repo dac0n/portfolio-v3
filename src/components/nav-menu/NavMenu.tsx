@@ -7,7 +7,7 @@ import { ThemeSwitchIcon } from "@/assets/svgeComponents/ThemeSwitch";
 import { HomeIcon } from "@/assets/svgeComponents/Home";
 import {
   extractAngle,
-  hoverable,
+  hoverableBtn,
   rotatedRectangleBoundingBox,
 } from "../utils/helperFunctions";
 import { AngleClassName, ClassName } from "../utils/types";
@@ -207,21 +207,19 @@ export const NavMenu = ({ className }: NavMenuProps) => {
             </MenuBtn>
             <Frame className="group/button mt-[-1px] h-[131px] w-full justify-end">
               <div
-                className={`relative h-[131px] w-[131px] ${hoverable(activeBtn === "homeIcon", "bg", "outline")}`}
+                className={`relative h-[131px] w-[131px] ${hoverableBtn(activeBtn === "homeIcon", "bg", "outline")}`}
                 style={{
                   clipPath: "polygon(100% 0, 0 0, 100% 100%)",
                 }}
               >
                 <Frame
-                  className={`absolute right-[1px] top-[1px] h-[127.5px] w-[127.5px] items-start justify-end ${hoverable(activeBtn === "homeIcon", "bg")}`}
+                  className={`absolute right-[1px] top-[1px] h-[127.5px] w-[127.5px] cursor-pointer items-start justify-end ${hoverableBtn(activeBtn === "homeIcon", "bg")}`}
                   style={{
                     clipPath: "inherit",
                   }}
+                  onClick={() => handlePress("homeIcon")}
                 >
-                  <HomeIcon
-                    className="mr-4 mt-4 h-11 w-11 rotate-45"
-                    onClick={() => handlePress("homeIcon")}
-                  />
+                  <HomeIcon className="mr-4 mt-4 h-11 w-11 rotate-45" />
                 </Frame>
               </div>
             </Frame>
@@ -229,15 +227,13 @@ export const NavMenu = ({ className }: NavMenuProps) => {
           <Frame className="flex h-64 w-16 flex-col justify-normal">
             <div className="group/button mb-[-1px]">
               <Frame
-                className={`relative h-16 w-16 ${hoverable(activeBtn === "themeSwitchIcon", "bg", "outline")}`}
+                className={`relative h-16 w-16 ${hoverableBtn(activeBtn === "themeSwitchIcon", "bg", "outline")}`}
               >
                 <Frame
-                  className={`absolute left-[1px] top-[1px] h-[62px] w-[62px] ${hoverable(activeBtn === "themeSwitchIcon", "bg")}`}
+                  className={`absolute left-[1px] top-[1px] h-[62px] w-[62px] cursor-pointer ${hoverableBtn(activeBtn === "themeSwitchIcon", "bg")}`}
+                  onClick={() => handlePress("themeSwitchIcon")}
                 >
-                  <ThemeSwitchIcon
-                    className="h-11 w-11 rotate-45"
-                    onClick={() => handlePress("themeSwitchIcon")}
-                  />
+                  <ThemeSwitchIcon className="h-11 w-11 rotate-45" />
                 </Frame>
               </Frame>
             </div>
