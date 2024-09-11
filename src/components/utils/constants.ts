@@ -1,6 +1,4 @@
-import dedent from "dedent";
-
-export enum TechName {
+export enum TECH_NAMES {
   React = "React",
   Typescript = "Typescript",
   Flutter = "Flutter",
@@ -15,7 +13,27 @@ export enum TechName {
   CSS = "CSS",
 }
 
-export enum ProjectName {
+export enum TechType {
+  Backend,
+  Frontend,
+}
+
+export const TECHNOLOGY_TYPES = {
+  [TECH_NAMES.CSS]: TechType.Frontend,
+  [TECH_NAMES.Figma]: TechType.Frontend,
+  [TECH_NAMES.Firebase]: TechType.Backend,
+  [TECH_NAMES.Flutter]: TechType.Frontend,
+  [TECH_NAMES.GoogleCloud]: TechType.Backend,
+  [TECH_NAMES.MongoDB]: TechType.Backend,
+  [TECH_NAMES.NextJS]: TechType.Backend,
+  [TECH_NAMES.OneSignal]: TechType.Backend,
+  [TECH_NAMES.React]: TechType.Frontend,
+  [TECH_NAMES.Tailwind]: TechType.Frontend,
+  [TECH_NAMES.Typescript]: TechType.Frontend,
+  [TECH_NAMES.Vite]: TechType.Frontend,
+};
+
+export enum PROJECT_NAMES {
   HBT = "Habitlabs",
   Cosafe = "Cosafe",
   Coyards = "Coyards",
@@ -24,7 +42,7 @@ export enum ProjectName {
   Matrixsoftlabs = "Matrixsoftlabs",
 }
 
-export enum ProjectLogoSource {
+export enum PROJECT_LOGO_SOURCES {
   HBT = "/Hbt.svg",
   Cosafe = "/Cosafe.svg",
   Coyards = "/Coyards.svg",
@@ -33,7 +51,7 @@ export enum ProjectLogoSource {
   Matrixsoftlabs = "/Matrixsoftlabs.svg",
 }
 
-export enum TechLogoSource {
+export enum TECH_LOGO_SOURCES {
   React = "/React.svg",
   Typescript = "/Typescript.svg",
   Flutter = "/Flutter.svg",
@@ -49,24 +67,24 @@ export enum TechLogoSource {
 }
 
 type TechInfo = {
-  [key in TechName]: {
+  [key in TECH_NAMES]: {
     type: "Tool" | "Framework" | "Library" | "Language";
-    name: TechName;
+    name: TECH_NAMES;
     icon: string;
     texts: {
       title: string;
       yoe: number;
       description: string[];
     };
-    usedAtProjects: ProjectName[];
+    usedAtProjects: PROJECT_NAMES[];
   };
 };
 
 export const techCatalog: TechInfo = {
-  [TechName.React]: {
+  [TECH_NAMES.React]: {
     type: "Library",
-    name: TechName.React,
-    icon: TechLogoSource.React,
+    name: TECH_NAMES.React,
+    icon: TECH_LOGO_SOURCES.React,
     texts: {
       title: "React",
       yoe: 3,
@@ -77,16 +95,16 @@ export const techCatalog: TechInfo = {
       ],
     },
     usedAtProjects: [
-      ProjectName.Cosafe,
-      ProjectName.Coyards,
-      ProjectName.OneTouch,
-      ProjectName.HBT,
+      PROJECT_NAMES.Cosafe,
+      PROJECT_NAMES.Coyards,
+      PROJECT_NAMES.OneTouch,
+      PROJECT_NAMES.HBT,
     ],
   },
-  [TechName.Typescript]: {
+  [TECH_NAMES.Typescript]: {
     type: "Language",
-    name: TechName.Typescript,
-    icon: TechLogoSource.Typescript,
+    name: TECH_NAMES.Typescript,
+    icon: TECH_LOGO_SOURCES.Typescript,
     texts: {
       title: "Typescript",
       yoe: 3,
@@ -97,16 +115,16 @@ export const techCatalog: TechInfo = {
       ],
     },
     usedAtProjects: [
-      ProjectName.Cosafe,
-      ProjectName.Coyards,
-      ProjectName.HBT,
-      ProjectName.Current,
+      PROJECT_NAMES.Cosafe,
+      PROJECT_NAMES.Coyards,
+      PROJECT_NAMES.HBT,
+      PROJECT_NAMES.Current,
     ],
   },
-  [TechName.Flutter]: {
+  [TECH_NAMES.Flutter]: {
     type: "Framework",
-    name: TechName.Flutter,
-    icon: TechLogoSource.Flutter,
+    name: TECH_NAMES.Flutter,
+    icon: TECH_LOGO_SOURCES.Flutter,
     texts: {
       title: "Flutter",
       yoe: 1,
@@ -116,12 +134,12 @@ export const techCatalog: TechInfo = {
         "Embraced OOP principles of Dart and it's statically-typed approach by providing missing types to incomplete interfaces to detect and fix existing errors.",
       ],
     },
-    usedAtProjects: [ProjectName.OneTouch],
+    usedAtProjects: [PROJECT_NAMES.OneTouch],
   },
-  [TechName.Tailwind]: {
+  [TECH_NAMES.Tailwind]: {
     type: "Framework",
-    name: TechName.Tailwind,
-    icon: TechLogoSource.Tailwind,
+    name: TECH_NAMES.Tailwind,
+    icon: TECH_LOGO_SOURCES.Tailwind,
     texts: {
       title: "Tailwind",
       yoe: 1,
@@ -130,12 +148,12 @@ export const techCatalog: TechInfo = {
         "Using tailwindcss-themer and powerful utilities of that framework, i'm working on this website, with easy-to-read codebase, high performance due to optimal amount of JS and a modern-looking design.",
       ],
     },
-    usedAtProjects: [ProjectName.Current],
+    usedAtProjects: [PROJECT_NAMES.Current],
   },
-  [TechName.Vite]: {
+  [TECH_NAMES.Vite]: {
     type: "Tool",
-    name: TechName.Vite,
-    icon: TechLogoSource.Vite,
+    name: TECH_NAMES.Vite,
+    icon: TECH_LOGO_SOURCES.Vite,
     texts: {
       title: "Vite",
       yoe: 1,
@@ -144,12 +162,12 @@ export const techCatalog: TechInfo = {
         "Did whole setup (resulting in a production-ready app), optimized assets, integrated enforced eslint rule-checking.",
       ],
     },
-    usedAtProjects: [ProjectName.HBT],
+    usedAtProjects: [PROJECT_NAMES.HBT],
   },
-  [TechName.Figma]: {
+  [TECH_NAMES.Figma]: {
     type: "Tool",
-    name: TechName.Figma,
-    icon: TechLogoSource.Figma,
+    name: TECH_NAMES.Figma,
+    icon: TECH_LOGO_SOURCES.Figma,
     texts: {
       title: "Figma",
       yoe: 2,
@@ -163,16 +181,16 @@ export const techCatalog: TechInfo = {
       ],
     },
     usedAtProjects: [
-      ProjectName.HBT,
-      ProjectName.Coyards,
-      ProjectName.Cosafe,
-      ProjectName.Current,
+      PROJECT_NAMES.HBT,
+      PROJECT_NAMES.Coyards,
+      PROJECT_NAMES.Cosafe,
+      PROJECT_NAMES.Current,
     ],
   },
-  [TechName.Firebase]: {
+  [TECH_NAMES.Firebase]: {
     type: "Tool",
-    name: TechName.Firebase,
-    icon: TechLogoSource.Firebase,
+    name: TECH_NAMES.Firebase,
+    icon: TECH_LOGO_SOURCES.Firebase,
     texts: {
       title: "Firebase",
       yoe: 1,
@@ -181,12 +199,12 @@ export const techCatalog: TechInfo = {
         "Reduced the number of database queries by at least 3 times, supporting a user base of 20 000, by optimizing database queries, which also reduced operational costs of back-end.",
       ],
     },
-    usedAtProjects: [ProjectName.OneTouch],
+    usedAtProjects: [PROJECT_NAMES.OneTouch],
   },
-  [TechName.NextJS]: {
+  [TECH_NAMES.NextJS]: {
     type: "Framework",
-    name: TechName.NextJS,
-    icon: TechLogoSource.NextJS,
+    name: TECH_NAMES.NextJS,
+    icon: TECH_LOGO_SOURCES.NextJS,
     texts: {
       title: "NextJS",
       yoe: 1,
@@ -194,12 +212,12 @@ export const techCatalog: TechInfo = {
         "Learned to update my knowledge of modern frameworks and technologies. Applied this knowledge to create a website which supports server-side-rendering and a back-end integration (the latter is currently WIP).",
       ],
     },
-    usedAtProjects: [ProjectName.Current],
+    usedAtProjects: [PROJECT_NAMES.Current],
   },
-  [TechName.MongoDB]: {
+  [TECH_NAMES.MongoDB]: {
     type: "Tool",
-    name: TechName.MongoDB,
-    icon: TechLogoSource.MongoDB,
+    name: TECH_NAMES.MongoDB,
+    icon: TECH_LOGO_SOURCES.MongoDB,
     texts: {
       title: "MongoDB",
       yoe: 1,
@@ -207,12 +225,12 @@ export const techCatalog: TechInfo = {
         "Completed a Python course, which included MongoDB integration for blockchain implementation. Used and modified existing implementation on the very first project, to dynamically display the data provided by the back-end on a web application.",
       ],
     },
-    usedAtProjects: [ProjectName.OneTouch],
+    usedAtProjects: [PROJECT_NAMES.OneTouch],
   },
-  [TechName.GoogleCloud]: {
+  [TECH_NAMES.GoogleCloud]: {
     type: "Tool",
-    name: TechName.GoogleCloud,
-    icon: TechLogoSource.GoogleCloud,
+    name: TECH_NAMES.GoogleCloud,
+    icon: TECH_LOGO_SOURCES.GoogleCloud,
     texts: {
       title: "Google Cloud",
       yoe: 1.5,
@@ -223,15 +241,15 @@ export const techCatalog: TechInfo = {
       ],
     },
     usedAtProjects: [
-      ProjectName.Coyards,
-      ProjectName.OneTouch,
-      ProjectName.Current,
+      PROJECT_NAMES.Coyards,
+      PROJECT_NAMES.OneTouch,
+      PROJECT_NAMES.Current,
     ],
   },
-  [TechName.OneSignal]: {
+  [TECH_NAMES.OneSignal]: {
     type: "Tool",
-    name: TechName.OneSignal,
-    icon: TechLogoSource.OneSignal,
+    name: TECH_NAMES.OneSignal,
+    icon: TECH_LOGO_SOURCES.OneSignal,
     texts: {
       title: "1Signal",
       yoe: 1,
@@ -240,12 +258,12 @@ export const techCatalog: TechInfo = {
         "Implemented signal capture & processing, with live updates and notifications, on front-end.",
       ],
     },
-    usedAtProjects: [ProjectName.Coyards],
+    usedAtProjects: [PROJECT_NAMES.Coyards],
   },
-  [TechName.CSS]: {
+  [TECH_NAMES.CSS]: {
     type: "Language",
-    name: TechName.CSS,
-    icon: TechLogoSource.CSS,
+    name: TECH_NAMES.CSS,
+    icon: TECH_LOGO_SOURCES.CSS,
     texts: {
       title: "CSS",
       yoe: 4,
@@ -254,11 +272,11 @@ export const techCatalog: TechInfo = {
       ],
     },
     usedAtProjects: [
-      ProjectName.Cosafe,
-      ProjectName.Coyards,
-      ProjectName.HBT,
-      ProjectName.OneTouch,
-      ProjectName.Current,
+      PROJECT_NAMES.Cosafe,
+      PROJECT_NAMES.Coyards,
+      PROJECT_NAMES.HBT,
+      PROJECT_NAMES.OneTouch,
+      PROJECT_NAMES.Current,
     ],
   },
 };

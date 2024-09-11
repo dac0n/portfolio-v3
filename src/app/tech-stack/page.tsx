@@ -4,23 +4,33 @@ import { TechLogo } from "@/assets/svgeComponents/TechLogo";
 import { TextFrame } from "@/assets/svgeComponents/TextFrame";
 import { Frame } from "@/components/frame/Frame";
 import LinedButton from "@/components/lined-button/LinedBtn";
-import { techCatalog, TechName } from "@/components/utils/constants";
-import { ComponentOrientation } from "@/components/utils/enums";
+import {
+  techCatalog,
+  TECH_NAMES,
+  TECHNOLOGY_TYPES,
+  TechType,
+} from "@/components/utils/constants";
 import { useState } from "react";
 
 export default function TechStack() {
-  const [activeTech, setActiveTech] = useState<keyof typeof TechName | null>(
+  const [activeTech, setActiveTech] = useState<keyof typeof TECH_NAMES | null>(
     null,
   );
-  const [hoveredTech, setHoveredTech] = useState<keyof typeof TechName | null>(
-    null,
-  );
+  const [hoveredTech, setHoveredTech] = useState<
+    keyof typeof TECH_NAMES | null
+  >(null);
+
+  const leftColumnActive =
+    activeTech &&
+    TECHNOLOGY_TYPES[TECH_NAMES[activeTech]] === TechType.Frontend;
+  const rightColumnActive =
+    activeTech && TECHNOLOGY_TYPES[TECH_NAMES[activeTech]] === TechType.Backend;
 
   const InteractiveIcon = ({
     type,
     inRightColumn = false,
   }: {
-    type: keyof typeof TechName;
+    type: keyof typeof TECH_NAMES;
     inRightColumn?: boolean;
   }) => {
     return (
@@ -30,7 +40,7 @@ export default function TechStack() {
         showRightLine={!inRightColumn}
         onMouseEnter={() => setHoveredTech(type)}
         onMouseLeave={() => setHoveredTech(null)}
-        onClick={() => setActiveTech(type)}
+        onClick={() => setActiveTech(activeTech !== type ? type : null)}
         isHovered={hoveredTech === type}
         isActive={activeTech === type}
       >
@@ -48,7 +58,7 @@ export default function TechStack() {
     type,
     inRightColumn = false,
   }: {
-    type: keyof typeof TechName;
+    type: keyof typeof TECH_NAMES;
     inRightColumn?: boolean;
   }) => (
     <LinedButton
@@ -59,11 +69,11 @@ export default function TechStack() {
       showRightLine={!inRightColumn}
       onMouseEnter={() => setHoveredTech(type)}
       onMouseLeave={() => setHoveredTech(null)}
-      onClick={() => setActiveTech(type)}
+      onClick={() => setActiveTech(activeTech !== type ? type : null)}
       isHovered={hoveredTech === type}
       isActive={activeTech === type}
     >
-      {TechName[type]}
+      {TECH_NAMES[type]}
     </LinedButton>
   );
 
@@ -92,34 +102,38 @@ export default function TechStack() {
                 <InteractiveText type="Figma" inRightColumn={true} />
               </Frame>
             </Frame>
-            <Frame className="flex h-[60px] justify-end font-exo2 text-[40px] font-semibold text-inactive">
+            <Frame
+              className={`flex h-[60px] justify-end font-exo2 text-[40px] font-semibold uppercase ${leftColumnActive ? "text-active" : "text-inactive"}`}
+            >
               Front end
             </Frame>
           </Frame>
           <div className="ml-[20px] flex h-full">
             <div
-              className={
-                "h-full w-[2px] bg-gradient-to-b from-active to-inactive"
-              }
+              className={`h-full w-[2px] ${leftColumnActive ? "bg-active" : "bg-gradient-to-b from-active to-inactive"}`}
             />
-            <div className="relative right-[1px] h-full w-[2px] bg-gradient-to-b from-active to-inactive blur-sm" />
+            <div
+              className={`relative right-[1px] h-full w-[2px] ${leftColumnActive ? "bg-active" : "bg-gradient-to-b from-active to-inactive"} blur-sm`}
+            />
           </div>
         </Frame>
         <Frame className="flex h-fit w-full max-w-[700px] flex-col items-start justify-start p-12">
           <TextFrame className="text-active">
             {!activeTech ? (
-              "Select a technology to display info"
+              <div className="font-chakraPetch">
+                Select a technology to display info.
+              </div>
             ) : (
               <div className="flex flex-col gap-2">
                 <div className="font-exo2 text-xs font-semibold">
-                  {`${techCatalog[TechName[activeTech]].type}: ${techCatalog[TechName[activeTech]].texts.title}`}
+                  {`${techCatalog[TECH_NAMES[activeTech]].type}: ${techCatalog[TECH_NAMES[activeTech]].texts.title}`}
                 </div>
                 <div className="font-exo2 text-xs font-semibold">
                   {"Years of experience: " +
-                    techCatalog[TechName[activeTech]].texts.yoe}
+                    techCatalog[TECH_NAMES[activeTech]].texts.yoe}
                 </div>
                 <div className="whitespace-pre-wrap font-exo2 text-xs font-extralight">
-                  {techCatalog[TechName[activeTech]].texts.description}
+                  {techCatalog[TECH_NAMES[activeTech]].texts.description}
                 </div>
               </div>
             )}
@@ -128,11 +142,11 @@ export default function TechStack() {
         <Frame className="w-fit">
           <div className="mr-[20px] flex h-full">
             <div
-              className={
-                "h-full w-[2px] bg-gradient-to-b from-active to-inactive"
-              }
+              className={`h-full w-[2px] ${rightColumnActive ? "bg-active" : "bg-gradient-to-b from-active to-inactive"}`}
             />
-            <div className="relative right-[1px] h-full w-[2px] bg-gradient-to-b from-active to-inactive blur-sm" />
+            <div
+              className={`relative right-[1px] h-full w-[2px] ${rightColumnActive ? "bg-active" : "bg-gradient-to-b from-active to-inactive"} blur-sm`}
+            />
           </div>
           <Frame className="flex w-[260px] flex-col justify-between">
             <Frame className="flex flex-row justify-between">
@@ -151,7 +165,9 @@ export default function TechStack() {
                 <InteractiveIcon type="OneSignal" inRightColumn={true} />
               </Frame>
             </Frame>
-            <Frame className="flex h-[60px] justify-start font-exo2 text-[40px] font-semibold text-inactive">
+            <Frame
+              className={`flex h-[60px] justify-start font-exo2 text-[40px] font-semibold uppercase ${rightColumnActive ? "text-active" : "text-inactive"}`}
+            >
               Back end
             </Frame>
           </Frame>

@@ -1,11 +1,11 @@
 import { CSSProperties, SVGProps } from "react";
 import Image from "next/image";
 import { Frame } from "@/components/frame/Frame";
-import { TechLogoSource, TechName } from "@/components/utils/constants";
+import { TECH_LOGO_SOURCES, TECH_NAMES } from "@/components/utils/constants";
 import { twMerge } from "tailwind-merge";
 
 type TechLogoProps = SVGProps<SVGSVGElement> & {
-  type: keyof typeof TechName;
+  type: keyof typeof TECH_NAMES;
   frameStyle?: CSSProperties;
   isHovered?: boolean;
   isActive?: boolean;
@@ -66,7 +66,7 @@ export const TechLogo = ({
           <Image
             width={54}
             height={54}
-            src={TechLogoSource[type]}
+            src={TECH_LOGO_SOURCES[type]}
             alt="Picture of the author"
           />
         </Frame>
