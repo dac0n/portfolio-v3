@@ -56,14 +56,14 @@ const LinedButton = ({
         </div>
       )}
       <div
-        className={twMerge(
-          `${
+        className={`${twMerge(
+          `z-10 text-nowrap text-4xl leading-normal transition-colors duration-300 ease-in-out ${
             isActive
-              ? "text-active"
-              : `${twMerge("text-inactive group-hover:text-hovered", isHovered ? "text-hovered" : "")}`
-          } ${children && "px-5"} z-10 text-nowrap text-4xl leading-normal transition-colors duration-300 ease-in-out`,
+              ? "text-active shadow-active"
+              : `${twMerge("text-inactive shadow-inactive group-hover:text-hovered group-hover:shadow-hovered", isHovered ? "text-hovered shadow-inactive" : "")}`
+          } ${children && "px-5"} `,
           textStyle,
-        )}
+        )} text-shadow`}
       >
         {children && children}
       </div>

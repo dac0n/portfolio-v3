@@ -1,6 +1,8 @@
 //@ts-check
 
-import type { Config } from "tailwindcss";
+import type { PluginAPI, Config } from "tailwindcss/types/config";
+
+const plugin = require("tailwindcss/plugin");
 
 export const colors = {
   navyBlue: "#6B728E",
@@ -44,6 +46,11 @@ const config: Config = {
       cursor: {
         default: "url('/cursor5.svg'), default",
         pointer: "url('/cursor_active.svg'), pointer",
+      },
+      textShadow: {
+        sm: "0 1px 2px var(--tw-shadow-color)",
+        DEFAULT: "0 0 4px var(--tw-shadow-color)",
+        lg: "0 8px 16px var(--tw-shadow-color)",
       },
     },
   },
@@ -115,6 +122,22 @@ const config: Config = {
           },
         },
       },
+    }),
+    plugin(function ({
+      matchUtilities,
+      theme,
+    }: {
+      matchUtilities: PluginAPI["matchUtilities"];
+      theme: PluginAPI["theme"];
+    }) {
+      matchUtilities(
+        {
+          "text-shadow": (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme("textShadow") },
+      );
     }),
   ],
 };

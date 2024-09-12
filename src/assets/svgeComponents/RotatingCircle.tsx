@@ -37,6 +37,9 @@ export const RotatingCircleIcon = (props: SVGProps<SVGSVGElement>) => {
         d="M360.914 183.668c-3.021 1.952-8.208 7.519-7.918 8.53.077.222 3.966-1.951 8.683-4.82l8.577-5.215-3.068-.279c-3.014-.274-3.13-.242-6.274 1.784ZM354.284 193.215c-2.164 1.43-2.386 1.796-2.716 3.95-.44 2.872.203 6.657 1.548 9.477l1.066 2.11 1.368-8.569c.719-4.689 1.252-8.538 1.191-8.5-.109-.01-1.219.702-2.457 1.532ZM355.978 208.273c-.343 2.239-.266 2.46 1.735 4.269 2.913 2.749 4.736 3.9 8.665 5.457 1.882.771 3.461 1.343 3.474 1.258.013-.084-3.025-3.101-6.746-6.738l-6.766-6.611-.362 2.365Z"
       />
       <circle cx="200" cy="200" r="18" className="fill-shape-alt" />
+      <g filter="url(#blur)">
+        <circle cx="200" cy="200" r="18" className="fill-shape-alt" />
+      </g>
       <path
         className="stroke-shape-alt"
         strokeLinecap="round"
@@ -101,6 +104,19 @@ export const RotatingCircleIcon = (props: SVGProps<SVGSVGElement>) => {
             result="effect1_foregroundBlur_184_1711"
             stdDeviation="2"
           />
+        </filter>
+        <filter
+          id="blur"
+          x="0"
+          y="0"
+          colorInterpolationFilters="sRGB"
+          filterUnits="userSpaceOnUse"
+          width="100%"
+          height="100%"
+        >
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
         </filter>
       </defs>
     </svg>
