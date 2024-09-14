@@ -5,6 +5,7 @@ import { TechLogo } from "@/assets/svgeComponents/TechLogo";
 import { TextFrame } from "@/assets/svgeComponents/TextFrame";
 import { Frame } from "@/components/frame/Frame";
 import LinedButton from "@/components/lined-button/LinedBtn";
+import ProjectIcons from "@/components/projectIcons/ProjectIcons";
 import {
   techCatalog,
   TECH_NAMES,
@@ -13,6 +14,22 @@ import {
   PROJECT_LOGO_SOURCES,
 } from "@/components/utils/constants";
 import { useState } from "react";
+
+const ColumnTitle = ({
+  column,
+  isActive,
+}: {
+  column: "right" | "left";
+  isActive: boolean;
+}) => {
+  return (
+    <Frame
+      className={`textShadow mt-6 flex h-[60px] ${column === "left" ? "justify-end" : "justify-start"} font-exo2 text-[40px] font-semibold uppercase ${isActive ? "text-active shadow-active" : "text-inactive shadow-inactive"}`}
+    >
+      {column === "left" ? "Front end" : "Back end"}
+    </Frame>
+  );
+};
 
 export default function TechStack() {
   const [activeTech, setActiveTech] = useState<keyof typeof TECH_NAMES | null>(
@@ -83,12 +100,12 @@ export default function TechStack() {
   );
 
   return (
-    <main className="mt-[220px] flex h-screen w-screen flex-col items-center justify-start overflow-scroll">
-      <Frame className="flex h-[800px] w-full">
+    <main className="flex h-screen w-screen flex-col items-center justify-start overflow-hidden">
+      <Frame className="flex h-auto w-full">
         <Frame className="w-fit">
           <Frame className="flex w-[260px] flex-col justify-between">
-            <Frame className="flex flex-row justify-between">
-              <Frame className="flex flex-col">
+            <Frame className="flex h-auto flex-row justify-between">
+              <Frame className="flex h-auto flex-col items-start">
                 <InteractiveIcon type="React" />
                 <InteractiveText type="CSS" />
                 <InteractiveIcon type="Typescript" />
@@ -97,7 +114,7 @@ export default function TechStack() {
                 <InteractiveText type="Vite" />
                 <InteractiveIcon type="Figma" />
               </Frame>
-              <Frame className="flex flex-col">
+              <Frame className="flex h-auto flex-col items-start">
                 <InteractiveText type="React" inRightColumn={true} />
                 <InteractiveIcon type="CSS" inRightColumn={true} />
                 <InteractiveText type="Typescript" inRightColumn={true} />
@@ -107,13 +124,9 @@ export default function TechStack() {
                 <InteractiveText type="Figma" inRightColumn={true} />
               </Frame>
             </Frame>
-            <Frame
-              className={`flex h-[60px] justify-end font-exo2 text-[40px] font-semibold uppercase ${leftColumnActive ? "text-active" : "text-inactive"}`}
-            >
-              Front end
-            </Frame>
+            <ColumnTitle column="left" isActive={!!leftColumnActive} />
           </Frame>
-          <div className="ml-[20px] flex h-full">
+          <div className="ml-[20px] flex h-[100%]">
             <div
               className={`h-full w-[2px] ${leftColumnActive ? "bg-active" : "bg-gradient-to-b from-active to-inactive"}`}
             />
@@ -125,8 +138,8 @@ export default function TechStack() {
         <Frame className="flex h-fit w-full max-w-[700px] flex-col items-start justify-start gap-12 p-12">
           <TextFrame className="text-active">
             {!activeTech ? (
-              <div className="font-chakraPetch">
-                Select a technology to display info.
+              <div className="font-chakraPetch font-extralight shadow-active text-shadow">
+                Select a technology to display info..
               </div>
             ) : (
               <div className="flex flex-col gap-2">
@@ -137,29 +150,29 @@ export default function TechStack() {
                   {"Years of experience: " +
                     techCatalog[TECH_NAMES[activeTech]].texts.yoe}
                 </div>
-                <div className="whitespace-pre-wrap font-exo2 text-xs font-extralight">
-                  {techCatalog[TECH_NAMES[activeTech]].texts.description}
+                <div className="font-exo2 text-xs font-extralight">
+                  {techCatalog[TECH_NAMES[activeTech]].texts.description.map(
+                    (line, index) => (
+                      <div key={`description-${index}`}>{line}</div>
+                    ),
+                  )}
                 </div>
               </div>
             )}
           </TextFrame>
           <div className="flex w-full flex-col">
             <Divider />
-            <div className="flex flex-row justify-between">
-              <div className="flex items-center text-nowrap font-exo2 text-[24px] font-semibold leading-[60px] text-inactive">
-                Used at projects:
-              </div>
+            <div className="flex h-14 flex-row justify-between gap-2">
+              <Frame className="w-auto">
+                <div className="flex items-start text-nowrap font-exo2 text-[24px] font-semibold text-inactive shadow-inactive">
+                  Used at projects:
+                </div>
+              </Frame>
+
               <div className="flex flex-grow flex-row flex-wrap justify-center gap-2">
-                {activeTechInfo &&
-                  activeTechInfo.usedAtProjects.map((tech) => (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      className=""
-                      key={tech}
-                      alt={tech}
-                      src={PROJECT_LOGO_SOURCES[tech]}
-                    />
-                  ))}
+                {activeTechInfo && (
+                  <ProjectIcons projects={activeTechInfo.usedAtProjects} />
+                )}
               </div>
             </div>
           </div>
@@ -174,15 +187,15 @@ export default function TechStack() {
             />
           </div>
           <Frame className="flex w-[260px] flex-col justify-between">
-            <Frame className="flex flex-row justify-between">
-              <Frame className="flex flex-col">
+            <Frame className="flex h-full flex-row justify-between">
+              <Frame className="flex h-auto flex-col items-start">
                 <InteractiveText type="Firebase" />
                 <InteractiveIcon type="NextJS" />
                 <InteractiveText type="MongoDB" />
                 <InteractiveIcon type="GoogleCloud" />
                 <InteractiveText type="OneSignal" />
               </Frame>
-              <Frame className="flex flex-col">
+              <Frame className="flex h-auto flex-col items-start">
                 <InteractiveIcon type="Firebase" inRightColumn={true} />
                 <InteractiveText type="NextJS" inRightColumn={true} />
                 <InteractiveIcon type="MongoDB" inRightColumn={true} />
@@ -190,11 +203,7 @@ export default function TechStack() {
                 <InteractiveIcon type="OneSignal" inRightColumn={true} />
               </Frame>
             </Frame>
-            <Frame
-              className={`flex h-[60px] justify-start font-exo2 text-[40px] font-semibold uppercase ${rightColumnActive ? "text-active" : "text-inactive"}`}
-            >
-              Back end
-            </Frame>
+            <ColumnTitle column="right" isActive={!!rightColumnActive} />
           </Frame>
         </Frame>
       </Frame>

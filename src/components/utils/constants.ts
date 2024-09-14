@@ -39,30 +39,50 @@ export enum PROJECT_NAMES {
   Coyards = "Coyards",
   OneTouch = "1Touch",
   Current = "This website",
-  Matrixsoftlabs = "Matrixsoftlabs",
+  // Matrixsoftlabs = "Matrixsoftlabs",
 }
 
 export const PROJECT_LOGO_SOURCES = {
-  [PROJECT_NAMES.HBT]: "/Hbt.svg",
-  [PROJECT_NAMES.Cosafe]: "/Cosafe.svg",
-  [PROJECT_NAMES.Coyards]: "/Coyards.svg",
-  [PROJECT_NAMES.OneTouch]: "/1Touch.svg",
-  [PROJECT_NAMES.Current]: "/CurrentWebsite.svg",
-  [PROJECT_NAMES.Matrixsoftlabs]: "/Matrixsoftlabs.svg",
+  [PROJECT_NAMES.HBT]: "/projectIcons/Hbt.svg",
+  [PROJECT_NAMES.Cosafe]: "/projectIcons/Cosafe.svg",
+  [PROJECT_NAMES.Coyards]: "/projectIcons/CoyardsDark.svg",
+  [PROJECT_NAMES.OneTouch]: "/projectIcons/1Touch.svg",
+  [PROJECT_NAMES.Current]: "/projectIcons/CurrentWebsite.svg",
+  // [PROJECT_NAMES.Matrixsoftlabs]: "/projectIcons/Matrixsoftlabs.svg",
+};
+
+export const IMAGE_LOGO_SOURCES = {
+  [PROJECT_NAMES.HBT]: [
+    "/projectImages/Hbt-webapp.png",
+    "/projectImages/Hbt-webapp-2.png",
+  ],
+  [PROJECT_NAMES.Cosafe]: [
+    "/projectImages/Cosafe.png",
+    "/projectImages/Cosafe-app.png",
+  ],
+  [PROJECT_NAMES.Coyards]: [
+    "/projectImages/Coyards1.png, /projectImages/Coyards2.png, /projectImages/Coyards3.png",
+  ],
+  [PROJECT_NAMES.OneTouch]: [
+    "/projectImages/1TouchSpecapp.png",
+    "/projectImages/1TouchWebsite.png",
+  ],
+  [PROJECT_NAMES.Current]: ["/projectIcons/CurrentWebsite.svg"], // todo: create something unique here instead
+  // [PROJECT_NAMES.Matrixsoftlabs]: "/projectImages/Matrixsoftlabs.svg",
 };
 export enum TECH_LOGO_SOURCES {
-  React = "/React.svg",
-  Typescript = "/Typescript.svg",
-  Flutter = "/Flutter.svg",
-  Tailwind = "/Tailwind.svg",
-  Vite = "/Vite.svg",
-  Figma = "/Figma.svg",
-  Firebase = "/Firebase.svg",
-  NextJS = "/NextJS.svg",
-  MongoDB = "/MongoDB.svg",
-  GoogleCloud = "/GoogleCloud.svg",
-  OneSignal = "/1Signal.svg",
-  CSS = "/CSS.svg",
+  React = "/techIcons/React.svg",
+  Typescript = "/techIcons/Typescript.svg",
+  Flutter = "/techIcons/Flutter.svg",
+  Tailwind = "/techIcons/Tailwind.svg",
+  Vite = "/techIcons/Vite.svg",
+  Figma = "/techIcons/Figma.svg",
+  Firebase = "/techIcons/Firebase.svg",
+  NextJS = "/techIcons/NextJS.svg",
+  MongoDB = "/techIcons/MongoDB.svg",
+  GoogleCloud = "/techIcons/GoogleCloud.svg",
+  OneSignal = "/techIcons/1Signal.svg",
+  CSS = "/techIcons/CSS.svg",
 }
 
 type TechInfo = {
@@ -144,7 +164,7 @@ export const techCatalog: TechInfo = {
       yoe: 1,
       description: [
         "Learned to update my knowledge of modern frameworks and technologies.",
-        "Using tailwindcss-themer and powerful utilities of that framework, i'm working on this website, with easy-to-read codebase, high performance due to optimal amount of JS and a modern-looking design.",
+        "Using tailwindcss-themer and powerful utilities of Tailwind, i'm working on this website, with easy-to-read codebase, high performance due to optimal amount of JS and a modern-looking design.",
       ],
     },
     usedAtProjects: [PROJECT_NAMES.Current],

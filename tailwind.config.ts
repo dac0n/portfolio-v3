@@ -12,6 +12,7 @@ export const colors = {
   neonBlue: "#00FFFF",
   olive: "#AA8410",
   selectiveYellow: "#FFB800",
+  lightGray: "#D7D7D7",
 };
 
 const config: Config = {
@@ -44,11 +45,11 @@ const config: Config = {
         ...colors,
       },
       cursor: {
-        default: "url('/cursor5.svg'), default",
+        default: "url('/cursor_default.svg'), default",
         pointer: "url('/cursor_active.svg'), pointer",
       },
       textShadow: {
-        sm: "0 1px 2px var(--tw-shadow-color)",
+        sm: "0 0 2px var(--tw-shadow-color)",
         DEFAULT: "0 0 4px var(--tw-shadow-color)",
         lg: "0 8px 16px var(--tw-shadow-color)",
       },
@@ -95,6 +96,11 @@ const config: Config = {
                 hovered: colors.darkBlue,
               },
             },
+            projectIconOutline: {
+              inactive: colors.navyBlue,
+              active: colors.neonBlue,
+              hovered: colors.white,
+            },
             shape: {
               main: colors.neonBlue,
               alt: colors.white,
@@ -132,7 +138,7 @@ const config: Config = {
     }) {
       matchUtilities(
         {
-          "text-shadow": (value) => ({
+          textShadow: (value) => ({
             textShadow: value,
           }),
         },

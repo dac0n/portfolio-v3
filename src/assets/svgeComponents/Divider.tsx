@@ -5,8 +5,6 @@ type DividerProps = {} & SVGProps<SVGSVGElement>;
 export const Divider = ({ ...rest }: DividerProps) => {
   return (
     <svg
-      width="575"
-      height="13"
       viewBox="0 0 575 13"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
