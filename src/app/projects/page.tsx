@@ -29,8 +29,8 @@ export default function Projects() {
             onClick={(project) =>
               setSelectedProject(project === selectedProject ? null : project)
             }
-            className="h-[64px] gap-[20px]"
-            iconClassName="w-full"
+            className="h-[64px] justify-center gap-[20px]"
+            iconClassName="w-[160px]"
           />
         </Frame>
         {selectedProject && (
