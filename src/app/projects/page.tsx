@@ -92,7 +92,11 @@ export default function Projects() {
                   key={`project-${src}`}
                   className="w-auto overflow-hidden"
                 >
-                  <img
+                  <Image
+                    width={0}
+                    height={0}
+                    unoptimized
+                    priority
                     className={"flex h-full w-auto object-contain"}
                     src={src}
                     alt={`project-${src}`}
