@@ -11,7 +11,7 @@ const chakraPetch = Chakra_Petch({
 });
 
 const exo2 = Exo_2({
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["200", "300", "400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-exo2",
 });

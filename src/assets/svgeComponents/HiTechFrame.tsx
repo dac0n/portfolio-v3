@@ -3,16 +3,16 @@ import { ClassName } from "@/components/utils/types";
 import { SVGProps } from "react";
 import { twMerge } from "tailwind-merge";
 
-type TextFrameProps = {
+type HiTechFrameProps = {
   textStyle?: ClassName;
   className?: ClassName;
 } & SVGProps<SVGSVGElement>;
 
-export const TextFrame = ({
+export const HiTechFrame = ({
   textStyle,
   className,
   ...rest
-}: TextFrameProps) => {
+}: HiTechFrameProps) => {
   return (
     <svg
       className={twMerge("h-full w-full overflow-hidden", className)}

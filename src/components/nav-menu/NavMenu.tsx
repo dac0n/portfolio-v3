@@ -12,6 +12,7 @@ import {
 } from "../utils/helperFunctions";
 import { AngleClassName, ClassName } from "../utils/types";
 import { useNavigation } from "@/hooks/useNavigation";
+import { twMerge } from "tailwind-merge";
 
 type MenuLocation = Exclude<AppRoute, "/">;
 
@@ -175,7 +176,7 @@ export const NavMenu = ({ className }: NavMenuProps) => {
 
   return (
     <Frame
-      className={className}
+      className={twMerge("overflow-hidden", className)}
       style={{
         width: `${width / navMenuTransforms[menuLocation].widthDivider}px`,
         height: `${height / navMenuTransforms[menuLocation].heightDivider}px`,

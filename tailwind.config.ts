@@ -96,6 +96,23 @@ const config: Config = {
                 hovered: colors.darkBlue,
               },
             },
+            downloadResumeBtn: {
+              text: {
+                inactive: colors.darkBlue,
+                active: colors.olive,
+                hovered: colors.white,
+              },
+              outline: {
+                inactive: colors.darkBlue,
+                active: colors.olive,
+                hovered: colors.white,
+              },
+              bg: {
+                inactive: colors.darkBlue,
+                active: colors.olive,
+                hovered: colors.white,
+              },
+            },
             projectIconOutline: {
               inactive: colors.navyBlue,
               active: colors.neonBlue,

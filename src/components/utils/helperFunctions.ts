@@ -1,6 +1,6 @@
 import { AngleClassName, ClassName } from "./types";
 
-// for button elements
+// for menu button elements
 export const hoverableBtn = (
   isActive: boolean,
   type: "bg" | "outline" | "text",

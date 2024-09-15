@@ -2,7 +2,7 @@
 
 import { Divider } from "@/assets/svgeComponents/Divider";
 import { TechLogo } from "@/assets/svgeComponents/TechLogo";
-import { TextFrame } from "@/assets/svgeComponents/TextFrame";
+import { HiTechFrame } from "@/assets/svgeComponents/HiTechFrame";
 import { Frame } from "@/components/frame/Frame";
 import LinedButton from "@/components/lined-button/LinedBtn";
 import ProjectIcons from "@/components/projectIcons/ProjectIcons";
@@ -136,7 +136,7 @@ export default function TechStack() {
           </div>
         </Frame>
         <Frame className="flex w-full max-w-[700px] flex-col items-start justify-start gap-[2em] p-[4%]">
-          <TextFrame className="text-active">
+          <HiTechFrame className="text-active">
             {!activeTech ? (
               <div className="text-shadow font-chakraPetch text-xl font-extralight shadow-active">
                 Select a technology to display info..
@@ -159,7 +159,7 @@ export default function TechStack() {
                 </div>
               </div>
             )}
-          </TextFrame>
+          </HiTechFrame>
           <div className="flex w-full flex-col">
             <Divider />
             <div className="flex h-14 flex-row justify-between gap-2">

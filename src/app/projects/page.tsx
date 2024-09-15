@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { Divider } from "@/assets/svgeComponents/Divider";
-import { TextFrame } from "@/assets/svgeComponents/TextFrame";
+import { HiTechFrame } from "@/assets/svgeComponents/HiTechFrame";
 import { Frame } from "@/components/frame/Frame";
 import ProjectIcons from "@/components/projectIcons/ProjectIcons";
 import {
@@ -36,7 +36,7 @@ export default function Projects() {
         {selectedProject && (
           <Frame className="animate-fade-in flex-row justify-between object-cover">
             <Frame className={`w-[48%] flex-col justify-start gap-[22px]`}>
-              <TextFrame className="flex h-[470px] text-[10px]">
+              <HiTechFrame className="flex h-[470px] text-[10px]">
                 {
                   <div className="flex flex-col gap-1 text-[20px] font-light text-active">
                     <div className="font-medium">
@@ -58,7 +58,7 @@ export default function Projects() {
                     )}
                   </div>
                 }
-              </TextFrame>
+              </HiTechFrame>
               <Frame className="h-auto flex-col items-start">
                 <div className="text-[24px] font-light text-active">
                   Used tech:

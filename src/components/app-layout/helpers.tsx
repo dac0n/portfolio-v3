@@ -25,7 +25,7 @@ const sideScreenTransforms: {
     navLayoutContainer: "w-screen h-[226px] min-h-[226px] bottom-0",
     navMenu: "bottom-0 left-1/2 -translate-x-1/2",
     circleShape: "w-[120%] h-full -top-[25px] left-1/2 -translate-x-1/2",
-    screenContainer: "flex flex-col-reverse",
+    screenContainer: "flex flex-col-reverse overflow-hidden",
   },
   bottom: {
     navLayoutContainer: "w-screen h-[226px] min-h-[226px] top-0",

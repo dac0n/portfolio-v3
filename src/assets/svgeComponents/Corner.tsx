@@ -34,15 +34,18 @@ export const CornerIcon = ({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       transform={`scale(${invertedX ? -1 : 1}, ${invertedY ? -1 : 1})`}
-      className={twMerge(`h-full ${width}`, className)}
+      className={`h-full ${width}`}
     >
       <path
         d={paths[cornerType]}
-        className={` ${
-          isActive
-            ? "fill-menuBtn-bg-active stroke-menuBtn-outline-active"
-            : "fill-menuBtn-bg-inactive stroke-menuBtn-outline-inactive group-hover/button:fill-menuBtn-bg-hovered group-hover/button:stroke-menuBtn-outline-hovered"
-        } `} // transition-colors duration-300 ease-in
+        className={twMerge(
+          `${
+            isActive
+              ? "fill-menuBtn-bg-active stroke-menuBtn-outline-active"
+              : "fill-menuBtn-bg-inactive stroke-menuBtn-outline-inactive group-hover/button:stroke-menuBtn-outline-hovered"
+          }`,
+          className,
+        )} // transition-colors duration-300 ease-in
       />
     </svg>
   );

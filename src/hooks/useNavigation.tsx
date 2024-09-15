@@ -46,7 +46,9 @@ export const useNavigation = () => {
           const transition = document.startViewTransition(() => {
             router.push(newRoute);
           });
-          transition.finished.then(() => {});
+          transition.finished.then(() => {
+            transitionContainer.style.overflow = "hidden";
+          });
         }
       }
     },
