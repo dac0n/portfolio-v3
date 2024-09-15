@@ -70,7 +70,6 @@ export const IMAGE_LOGO_SOURCES = {
     "/projectImages/1TouchSpecapp.png",
   ],
   [PROJECT_NAMES.Current]: ["/projectIcons/CurrentWebsite.svg"], // todo: create something unique here instead
-  // [PROJECT_NAMES.Matrixsoftlabs]: "/projectImages/Matrixsoftlabs.svg",
 };
 
 export const PROJECT_PREVIEW_LAYOUTS = {
