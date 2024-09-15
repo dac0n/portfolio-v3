@@ -61,15 +61,36 @@ export const IMAGE_LOGO_SOURCES = {
     "/projectImages/Cosafe-app.png",
   ],
   [PROJECT_NAMES.Coyards]: [
-    "/projectImages/Coyards1.png, /projectImages/Coyards2.png, /projectImages/Coyards3.png",
+    "/projectImages/Coyards1.png",
+    "/projectImages/Coyards2.png",
+    "/projectImages/Coyards3.png",
   ],
   [PROJECT_NAMES.OneTouch]: [
-    "/projectImages/1TouchSpecapp.png",
     "/projectImages/1TouchWebsite.png",
+    "/projectImages/1TouchSpecapp.png",
   ],
   [PROJECT_NAMES.Current]: ["/projectIcons/CurrentWebsite.svg"], // todo: create something unique here instead
   // [PROJECT_NAMES.Matrixsoftlabs]: "/projectImages/Matrixsoftlabs.svg",
 };
+
+export const PROJECT_PREVIEW_LAYOUTS = {
+  [PROJECT_NAMES.HBT]: {
+    className: "flex-col gap-2",
+  },
+  [PROJECT_NAMES.Coyards]: {
+    className: "flex-row",
+  },
+  [PROJECT_NAMES.Cosafe]: {
+    className: "flex-col gap-2",
+  },
+  [PROJECT_NAMES.OneTouch]: {
+    className: "flex-col gap-2",
+  },
+  [PROJECT_NAMES.Current]: {
+    className: "flex-col gap-2",
+  },
+};
+
 export enum TECH_LOGO_SOURCES {
   React = "/techIcons/React.svg",
   Typescript = "/techIcons/Typescript.svg",

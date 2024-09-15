@@ -1,7 +1,14 @@
 import { AppRoute } from "../utils/enums";
 import { ClassName } from "../utils/types";
 
-type CircleShapeLocation = Exclude<AppRoute, "/">;
+export const NAV_MENU_LOCATIONS = [
+  "/about",
+  "/get-in-touch",
+  "/tech-stack",
+  "/projects",
+] as const;
+
+export type NavMenuLocation = (typeof NAV_MENU_LOCATIONS)[number];
 
 type Side = "top" | "bottom" | "left" | "right";
 
@@ -41,7 +48,7 @@ const sideScreenTransforms: {
 };
 
 export const routeToSideMap: {
-  [key in CircleShapeLocation]: Side;
+  [key in NavMenuLocation]: Side;
 } = {
   "/about": "right",
   "/get-in-touch": "top",
@@ -50,18 +57,21 @@ export const routeToSideMap: {
 };
 
 export const getLayoutTransforms = (path: AppRoute) => {
-  if (path === "/")
+  if ((NAV_MENU_LOCATIONS as ReadonlyArray<string>).includes(path)) {
+    const side = routeToSideMap[path as NavMenuLocation];
+    return {
+      navLayoutContainerTransforms:
+        sideScreenTransforms[side].navLayoutContainer,
+      navMenuTransforms: sideScreenTransforms[side].navMenu,
+      circleShapeTransforms: sideScreenTransforms[side].circleShape,
+      screenContainerTransforms: sideScreenTransforms[side].screenContainer,
+    };
+  } else {
     return {
       navLayoutContainerTransforms: null,
       navMenuTransforms: null,
       circleShapeTransforms: null,
       screenContainerTransforms: null,
     };
-  const side = routeToSideMap[path];
-  return {
-    navLayoutContainerTransforms: sideScreenTransforms[side].navLayoutContainer,
-    navMenuTransforms: sideScreenTransforms[side].navMenu,
-    circleShapeTransforms: sideScreenTransforms[side].circleShape,
-    screenContainerTransforms: sideScreenTransforms[side].screenContainer,
-  };
+  }
 };

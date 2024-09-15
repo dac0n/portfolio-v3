@@ -17,9 +17,8 @@ export const TextFrame = ({
     <svg
       viewBox="0 0 344 238"
       fill="none"
-      preserveAspectRatio="xMinYMin"
       xmlns="http://www.w3.org/2000/svg"
-      className={twMerge("", className)}
+      className={twMerge("h-auto w-auto", className)}
       {...rest}
     >
       <path
@@ -33,11 +32,9 @@ export const TextFrame = ({
         />
       </g>
       <foreignObject
-        x="20"
-        y="20"
         width="100%"
         height="100%"
-        className="hide-scrollbar overflow-scroll pb-5 pr-9"
+        className="hide-scrollbar overflow-scroll px-5 py-5"
       >
         <div
           className={twMerge(

@@ -8,6 +8,7 @@ export const Divider = ({ ...rest }: DividerProps) => {
       viewBox="0 0 575 13"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="-mx-2"
       {...rest}
     >
       <g filter="url(#filter0_f_174_870)">

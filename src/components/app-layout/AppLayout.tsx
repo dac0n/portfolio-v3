@@ -28,7 +28,7 @@ export default function AppLayout({
       className={`flex h-screen w-screen overflow-hidden ${shouldDisplayTransitionPlaceholder ? flexDirectionMap[transitionDirection[AppRoutes[currentRoute]] as Direction] : ""}`}
     >
       <div
-        className={`flex h-screen w-screen flex-none ${screenContainerTransforms}`}
+        className={`flex h-screen w-screen flex-none ${screenContainerTransforms ?? ""}`}
       >
         <NavLayout />
         {children}
