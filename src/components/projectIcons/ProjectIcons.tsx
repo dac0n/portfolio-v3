@@ -9,6 +9,7 @@ interface ProjectIconsProps {
   onClick?: (project: PROJECT_NAMES) => void;
   isActive?: (project: PROJECT_NAMES) => boolean;
   className?: ClassName;
+  iconClassName?: ClassName;
 }
 
 const ProjectIcons: React.FC<ProjectIconsProps> = ({
@@ -16,15 +17,16 @@ const ProjectIcons: React.FC<ProjectIconsProps> = ({
   onClick,
   isActive,
   className,
+  iconClassName,
 }) => {
   return (
-    <>
+    <div className={twMerge("flex h-full w-full flex-row", className)}>
       {projects.map((project) => (
         <div
           key={project}
           className={twMerge(
             `"inline-block transition-colors duration-300 ${isActive?.(project) ? "border-projectIconOutline-active" : "border-projectIconOutline-inactive hover:border-projectIconOutline-hovered"} ${!!onClick && "cursor-pointer rounded-xl border-2 p-2"} "cursor-pointer"`,
-            className,
+            iconClassName,
           )}
           onClick={() => onClick?.(project)}
         >
@@ -38,7 +40,7 @@ const ProjectIcons: React.FC<ProjectIconsProps> = ({
           />
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

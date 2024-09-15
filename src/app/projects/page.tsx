@@ -17,35 +17,28 @@ export default function Projects() {
     null,
   );
   return (
-    <main className="flex h-screen w-screen justify-start overflow-hidden font-chakraPetch">
-      <Frame className="flex-col justify-start gap-9 px-12 py-24">
-        <Frame className="h-auto flex-col">
-          <Frame className="flex-col gap-9">
-            <div className="text-center text-[40px] leading-[60px] text-nonInteractive shadow-nonInteractive textShadow">
-              Pick a project:
-            </div>
-            <Frame className="flex-row gap-5">
-              <ProjectIcons
-                projects={Object.values(PROJECT_NAMES)}
-                isActive={(project) => project === selectedProject}
-                onClick={(project) =>
-                  setSelectedProject(
-                    project === selectedProject ? null : project,
-                  )
-                }
-              />
-            </Frame>
-          </Frame>
+    <main className="hide-scrollbar flex flex-grow items-center justify-center overflow-scroll font-chakraPetch">
+      <Frame className="h-[800px] w-[1200px] flex-col justify-start gap-[36px]">
+        <Frame className="h-[193px] flex-col justify-start gap-[36px]">
+          <div className="h-[60px] text-center text-[40px] text-nonInteractive shadow-nonInteractive textShadow">
+            Pick a project:
+          </div>
+          <ProjectIcons
+            projects={Object.values(PROJECT_NAMES)}
+            isActive={(project) => project === selectedProject}
+            onClick={(project) =>
+              setSelectedProject(project === selectedProject ? null : project)
+            }
+            className="h-[64px] gap-[20px]"
+            iconClassName="w-full"
+          />
         </Frame>
         {selectedProject && (
-          <Frame className="animate-fade-in flex-row justify-between overflow-hidden object-cover">
-            <Frame className={`w-[48%] flex-col justify-start gap-9`}>
-              <TextFrame
-                className="flex overflow-scroll text-[10px]"
-                textStyle="text-active"
-              >
+          <Frame className="animate-fade-in flex-row justify-between object-cover">
+            <Frame className={`w-[48%] flex-col justify-start gap-[36px]`}>
+              <TextFrame className="flex h-[470px] text-[10px]">
                 {
-                  <>
+                  <div className="flex flex-col gap-1 text-[20px] text-active">
                     <div>Project name: {selectedProject}</div>
                     <div>
                       Duration of involvement:{" "}
@@ -61,7 +54,7 @@ export default function Projects() {
                         </div>
                       ),
                     )}
-                  </>
+                  </div>
                 }
               </TextFrame>
               <Frame className="h-auto flex-col items-start">
@@ -70,12 +63,12 @@ export default function Projects() {
                 </div>
                 <div className="h-auto w-full">
                   <Divider />
-                  <div className="flex w-full flex-row flex-wrap gap-6">
+                  <div className="flex w-full flex-row flex-wrap gap-[1em]">
                     {selectedProject &&
                       projects[selectedProject].usedTech.map((tech, index) => (
                         <div
                           key={`tech-${index}`}
-                          className="text-[24px] font-light text-nonInteractive"
+                          className="text-[24px] font-light leading-[1.1em] text-nonInteractive"
                         >
                           {tech}
                         </div>

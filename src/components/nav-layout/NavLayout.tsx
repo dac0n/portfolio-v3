@@ -26,22 +26,17 @@ const NavLayout = () => {
   }
 
   return (
-    <>
-      <div className={` ${navLayoutContainerTransforms} pointer-events-none`} />{" "}
-      {/* we use this one to imitate display block nav layout to allow better flex layouts in screens*/}
-      <div
-        className={`absolute ${navLayoutContainerTransforms} pointer-events-none`}
-      >
-        <NavMenu
-          className={`pointer-events-auto absolute ${navMenuTransforms} z-0`}
-        />
-        {/* Circle shape */}
-        <Arc
-          side={routeToSideMap[currentPath]}
-          className={`absolute ${circleShapeTransforms}`}
-        />
-      </div>
-    </>
+    <div
+      className={`${navLayoutContainerTransforms} pointer-events-none flex-shrink-0`}
+    >
+      <NavMenu
+        className={`pointer-events-auto absolute ${navMenuTransforms} z-0`}
+      />
+      <Arc
+        side={routeToSideMap[currentPath]}
+        className={`relative ${circleShapeTransforms}`}
+      />
+    </div>
   );
 };
 

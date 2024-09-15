@@ -22,28 +22,28 @@ const sideScreenTransforms: {
 } = {
   top: {
     // className: "-translate-x-[93%] -translate-y-[32%]",
-    navLayoutContainer: "w-screen h-[226px] bottom-0",
-    navMenu: "top-0 left-1/2 -translate-x-1/2",
+    navLayoutContainer: "w-screen h-[226px] min-h-[226px] bottom-0",
+    navMenu: "bottom-0 left-1/2 -translate-x-1/2",
     circleShape: "w-[120%] h-full -top-[25px] left-1/2 -translate-x-1/2",
-    screenContainer: "flex gap-8 flex-col-reverse",
+    screenContainer: "flex flex-col-reverse",
   },
   bottom: {
-    navLayoutContainer: "w-screen h-[226px] top-0",
-    navMenu: "bottom-0 left-1/2 -translate-x-1/2",
+    navLayoutContainer: "w-screen h-[226px] min-h-[226px] top-0",
+    navMenu: "top-0 left-1/2 -translate-x-1/2",
     circleShape: "w-[120%] h-full -bottom-[25px] left-1/2 -translate-x-1/2",
-    screenContainer: "flex gap-8 flex-col",
+    screenContainer: "flex flex-col",
   },
   left: {
-    navLayoutContainer: "h-screen w-[226px] right-0",
-    navMenu: "left-0 top-1/2 -translate-y-1/2",
+    navLayoutContainer: "h-screen w-[226px] min-h-[226px] right-0",
+    navMenu: "right-0 top-1/2 -translate-y-1/2",
     circleShape: "w-full h-[120%] -left-[30px] top-1/2 -translate-y-1/2",
-    screenContainer: "flex gap-8 flex-row-reverse",
+    screenContainer: "flex flex-row-reverse overflow-hidden",
   },
   right: {
     navLayoutContainer: "h-screen w-[226px] left-0",
-    navMenu: "right-0 top-1/2 -translate-y-1/2",
+    navMenu: "left-0 top-1/2 -translate-y-1/2",
     circleShape: "w-full h-[120%] -right-[30px] top-1/2 -translate-y-1/2",
-    screenContainer: "flex gap-8 flex-row",
+    screenContainer: "flex flex-row overflow-hidden",
   },
 };
 

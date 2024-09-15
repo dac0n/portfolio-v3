@@ -24,7 +24,7 @@ const ColumnTitle = ({
 }) => {
   return (
     <Frame
-      className={`textShadow mt-6 flex h-[60px] ${column === "left" ? "justify-end" : "justify-start"} font-exo2 text-[40px] font-semibold uppercase ${isActive ? "text-active shadow-active" : "text-inactive shadow-inactive"}`}
+      className={`mt-6 flex h-[60px] textShadow ${column === "left" ? "justify-end" : "justify-start"} font-exo2 text-[40px] font-semibold uppercase ${isActive ? "text-active shadow-active" : "text-inactive shadow-inactive"}`}
     >
       {column === "left" ? "Front end" : "Back end"}
     </Frame>
@@ -100,8 +100,8 @@ export default function TechStack() {
   );
 
   return (
-    <main className="flex h-screen w-screen flex-col items-center justify-start overflow-hidden">
-      <Frame className="flex h-auto w-full">
+    <main className="scale flex flex-grow flex-col items-center justify-start">
+      <Frame className="-mt-10 flex h-auto w-full scale-90">
         <Frame className="w-fit">
           <Frame className="flex w-[260px] flex-col justify-between">
             <Frame className="flex h-auto flex-row justify-between">
@@ -135,22 +135,22 @@ export default function TechStack() {
             />
           </div>
         </Frame>
-        <Frame className="flex h-fit w-full max-w-[700px] flex-col items-start justify-start gap-12 p-12">
+        <Frame className="flex w-full max-w-[700px] flex-col items-start justify-start gap-[2em] p-[4%]">
           <TextFrame className="text-active">
             {!activeTech ? (
-              <div className="font-chakraPetch font-extralight shadow-active text-shadow">
+              <div className="text-shadow font-chakraPetch text-xl font-extralight shadow-active">
                 Select a technology to display info..
               </div>
             ) : (
               <div className="flex flex-col gap-2">
-                <div className="font-exo2 text-xs font-semibold">
+                <div className="font-exo2 text-xl font-semibold">
                   {`${techCatalog[TECH_NAMES[activeTech]].type}: ${techCatalog[TECH_NAMES[activeTech]].texts.title}`}
                 </div>
-                <div className="font-exo2 text-xs font-semibold">
+                <div className="font-exo2 text-xl font-semibold">
                   {"Years of experience: " +
                     techCatalog[TECH_NAMES[activeTech]].texts.yoe}
                 </div>
-                <div className="font-exo2 text-xs font-extralight">
+                <div className="font-exo2 text-xl font-extralight">
                   {techCatalog[TECH_NAMES[activeTech]].texts.description.map(
                     (line, index) => (
                       <div key={`description-${index}`}>{line}</div>

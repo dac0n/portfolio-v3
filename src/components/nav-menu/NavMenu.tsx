@@ -93,28 +93,40 @@ const navMenuTransforms: {
   [key in MenuLocation]: {
     flip: MenuLocation[];
     rotateClass: AngleClassName;
-    offset: `${"top" | "left" | "bottom" | "right"}-[${number}px]` | "";
+    offset:
+      | `${"-" | ""}${"top" | "left" | "bottom" | "right"}-[${number}px]`
+      | "";
+    widthDivider: number;
+    heightDivider: number;
   };
 } = {
   "/about": {
     rotateClass: "rotate-45",
     flip: ["/projects", "/tech-stack"],
-    offset: "left-[45px]",
+    offset: "-left-[66px]",
+    widthDivider: 2,
+    heightDivider: 1,
   },
   "/get-in-touch": {
     rotateClass: "-rotate-45",
     flip: [],
-    offset: "bottom-[45px]",
+    offset: "-bottom-[66px]",
+    widthDivider: 1,
+    heightDivider: 2,
   },
   "/projects": {
     rotateClass: "rotate-[-135deg]",
     flip: ["/projects", "/tech-stack"],
-    offset: "right-[45px]",
+    offset: "-right-[66px]",
+    widthDivider: 2,
+    heightDivider: 1,
   },
   "/tech-stack": {
     rotateClass: "rotate-[135deg]",
     flip: ["/about", "/get-in-touch", "/projects", "/tech-stack"],
-    offset: "top-[45px]",
+    offset: "-top-[66px]",
+    widthDivider: 1,
+    heightDivider: 2,
   },
 };
 
@@ -165,8 +177,8 @@ export const NavMenu = ({ className }: NavMenuProps) => {
     <Frame
       className={className}
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: `${width / navMenuTransforms[menuLocation].widthDivider}px`,
+        height: `${height / navMenuTransforms[menuLocation].heightDivider}px`,
       }}
     >
       <Frame
