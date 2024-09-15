@@ -35,12 +35,14 @@ export default function Projects() {
         </Frame>
         {selectedProject && (
           <Frame className="animate-fade-in flex-row justify-between object-cover">
-            <Frame className={`w-[48%] flex-col justify-start gap-[36px]`}>
+            <Frame className={`w-[48%] flex-col justify-start gap-[22px]`}>
               <TextFrame className="flex h-[470px] text-[10px]">
                 {
-                  <div className="flex flex-col gap-1 text-[20px] text-active">
-                    <div>Project name: {selectedProject}</div>
-                    <div>
+                  <div className="flex flex-col gap-1 text-[20px] font-light text-active">
+                    <div className="font-medium">
+                      Project name: {selectedProject}
+                    </div>
+                    <div className="font-medium">
                       Duration of involvement:{" "}
                       {projects[selectedProject].duration}
                     </div>
@@ -61,7 +63,7 @@ export default function Projects() {
                 <div className="text-[24px] font-light text-active">
                   Used tech:
                 </div>
-                <div className="h-auto w-full">
+                <div className="flex h-auto w-full flex-col gap-[18px]">
                   <Divider />
                   <div className="flex w-full flex-row flex-wrap gap-[1em]">
                     {selectedProject &&
