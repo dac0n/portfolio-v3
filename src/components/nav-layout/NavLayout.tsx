@@ -27,7 +27,7 @@ const NavLayout = () => {
 
   return (
     <div
-      className={`${navLayoutContainerTransforms} pointer-events-none flex-shrink-0`}
+      className={`relative ${navLayoutContainerTransforms} pointer-events-none flex-shrink-0`}
     >
       <NavMenu
         className={`pointer-events-auto absolute ${navMenuTransforms} z-0`}

@@ -49,7 +49,7 @@ export const PolygonFrame = ({
         y={9}
         width="100%"
         height="323px"
-        className={twMerge("overflow-hidden px-12 py-9 pl-20", className)}
+        className={twMerge("overflow-hidden px-11 py-8 pl-20", className)}
       >
         <div
           className={twMerge(

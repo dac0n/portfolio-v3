@@ -1,10 +1,9 @@
 import { PolygonFrame } from "@/assets/svgeComponents/PolygonFrame";
-import { Frame } from "@/components/frame/Frame";
 import { MenuBtn } from "@/components/menu-btn/MenuBtn";
 import Image from "next/image";
 export default function About() {
   return (
-    <main className="flex flex-grow flex-col justify-center text-center font-chakraPetch text-inactive">
+    <main className="hide-scrollbar flex flex-grow flex-col justify-center overflow-scroll text-center font-chakraPetch text-inactive">
       <div className="relative top-10 ml-20 grid w-[1000px] grid-cols-[636px_1fr] grid-rows-[334px_1fr] place-items-center gap-11">
         <PolygonFrame textStyle="text-xl font-extralight text-nonInteractive font-exo2">
           I am an enthusiastic programmer with three years of experience. I love
@@ -31,23 +30,23 @@ export default function About() {
           </div>
         </div>
         <div>
-          <MenuBtn
-            leftCorner={{
-              cornerType: "corner",
-              invertedX: true,
-              invertedY: true,
-            }}
-            rightCorner={{ cornerType: "corner", invertedY: true }}
-            className="w-[301px]"
+          <a
+            href="/daniel-konstantinov-resume.pdf"
+            className="cursor-pointer"
+            download="daniel-konstantinov-resume.pdf"
           >
-            <a
-              href="/daniel-konstantinov-resume.pdf"
-              className="cursor-pointer"
-              download="cv"
+            <MenuBtn
+              leftCorner={{
+                cornerType: "corner",
+                invertedX: true,
+                invertedY: true,
+              }}
+              rightCorner={{ cornerType: "corner", invertedY: true }}
+              className="w-[301px]"
             >
               Download resume
-            </a>
-          </MenuBtn>
+            </MenuBtn>
+          </a>
         </div>
         <div></div>
       </div>

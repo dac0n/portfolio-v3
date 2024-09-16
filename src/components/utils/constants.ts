@@ -66,8 +66,8 @@ export const IMAGE_LOGO_SOURCES = {
     "/projectImages/Coyards3.png",
   ],
   [PROJECT_NAMES.OneTouch]: [
-    "/projectImages/1TouchWebsite.png",
-    "/projectImages/1TouchSpecapp.png",
+    "/projectImages/OneTouch-website.png",
+    "/projectImages/OneTouch-specapp.png",
   ],
   [PROJECT_NAMES.Current]: ["/projectIcons/CurrentWebsite.svg"], // todo: create something unique here instead
 };
