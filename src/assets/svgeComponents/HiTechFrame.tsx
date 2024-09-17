@@ -60,7 +60,7 @@ export const HiTechFrame = ({
       <foreignObject
         width="100%"
         height="100%"
-        className={twMerge("overflow-hidden px-7 py-7", className)}
+        className={twMerge("overflow-hidden px-8 py-8", className)}
       >
         <div
           className={twMerge(

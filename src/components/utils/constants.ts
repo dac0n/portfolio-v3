@@ -77,7 +77,7 @@ export const PROJECT_PREVIEW_LAYOUTS = {
     className: "flex-col gap-2",
   },
   [PROJECT_NAMES.Coyards]: {
-    className: "flex-row",
+    className: "flex-row gap-3",
   },
   [PROJECT_NAMES.Cosafe]: {
     className: "flex-col gap-2",

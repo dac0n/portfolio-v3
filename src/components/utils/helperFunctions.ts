@@ -1,7 +1,7 @@
 import { AngleClassName, ClassName } from "./types";
 
-// for menu button elements
-export const hoverableBtn = (
+// returns btn-like styles to an element
+export const hoverableElementStyles = (
   isActive: boolean,
   type: "bg" | "outline" | "text",
   color?: "bg" | "outline" | "text",

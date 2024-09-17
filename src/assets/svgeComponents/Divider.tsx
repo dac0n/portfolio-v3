@@ -12,13 +12,19 @@ export const Divider = ({ ...rest }: DividerProps) => {
       {...rest}
     >
       <g filter="url(#filter0_f_174_870)">
-        <path d="M4 4H91.2308V5H87.8757L83.3007 9H4V4Z" fill="#00FFFF" />
+        <path
+          d="M4 4H91.2308V5H87.8757L83.3007 9H4V4Z"
+          className="fill-shape-main"
+        />
       </g>
-      <path d="M4 4H91.2308V5H87.8757L83.3007 9H4V4Z" fill="#00FFFF" />
+      <path
+        d="M4 4H91.2308V5H87.8757L83.3007 9H4V4Z"
+        className="fill-shape-main"
+      />
       <g filter="url(#filter1_f_174_870)">
-        <path d="M91.2305 4H571V5H91.2305V4Z" fill="#00FFFF" />
+        <path d="M91.2305 4H571V5H91.2305V4Z" className="fill-shape-main" />
       </g>
-      <path d="M91.2305 4H571V5H91.2305V4Z" fill="#00FFFF" />
+      <path d="M91.2305 4H571V5H91.2305V4Z" className="fill-shape-main" />
       <defs>
         <filter
           id="filter0_f_174_870"

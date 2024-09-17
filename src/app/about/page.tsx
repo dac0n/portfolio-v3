@@ -1,9 +1,10 @@
 import { PolygonFrame } from "@/assets/svgeComponents/PolygonFrame";
+import { FormButton } from "@/components/form-btn/FormButton";
 import { MenuBtn } from "@/components/menu-btn/MenuBtn";
 import Image from "next/image";
 export default function About() {
   return (
-    <main className="hide-scrollbar flex flex-grow flex-col justify-center overflow-scroll text-center font-chakraPetch text-inactive">
+    <main className="hide-scrollbar flex flex-grow flex-col justify-center overflow-scroll py-[100px] text-center font-chakraPetch text-inactive">
       <div className="relative top-10 ml-20 grid w-[1000px] grid-cols-[636px_1fr] grid-rows-[334px_1fr] place-items-center gap-11">
         <PolygonFrame textStyle="text-xl font-extralight text-nonInteractive font-exo2">
           I am an enthusiastic programmer with three years of experience. I love
@@ -35,7 +36,7 @@ export default function About() {
             className="cursor-pointer"
             download="daniel-konstantinov-resume.pdf"
           >
-            <MenuBtn
+            <FormButton
               leftCorner={{
                 cornerType: "corner",
                 invertedX: true,
@@ -45,7 +46,7 @@ export default function About() {
               className="w-[301px]"
             >
               Download resume
-            </MenuBtn>
+            </FormButton>
           </a>
         </div>
         <div></div>

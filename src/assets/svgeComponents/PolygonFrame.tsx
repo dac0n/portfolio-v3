@@ -27,9 +27,9 @@ export const PolygonFrame = ({
       >
         <path
           d="M0.518368 231.235V8.51837H565.48L635.482 126.168V340.482H358.412H81.0868L0.518368 231.235Z"
-          fill="#040404"
+          className="bg-bgColor"
           stroke="url(#paint0_linear_326_1238)"
-          stroke-width="1.03674"
+          strokeWidth="1.03674"
         />
         <defs>
           <linearGradient
@@ -40,8 +40,8 @@ export const PolygonFrame = ({
             y2="217.776"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="white" />
-            <stop offset="1" stop-color="white" stop-opacity="0" />
+            <stop stopColor="white" />
+            <stop offset="1" stopColor="white" stop-opacity="0" />
           </linearGradient>
         </defs>
       </svg>

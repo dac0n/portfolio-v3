@@ -13,6 +13,7 @@ export const colors = {
   olive: "#AA8410",
   selectiveYellow: "#FFB800",
   lightGray: "#D7D7D7",
+  metalWhite: "#CDCDCD",
 };
 
 const config: Config = {
@@ -40,6 +41,7 @@ const config: Config = {
       fontFamily: {
         chakraPetch: ["var(--font-chakraPetch)"],
         exo2: ["var(--font-exo2)"],
+        baiJamjuree: ["var(--font-baiJamjuree)"],
       },
       colors: {
         ...colors,
@@ -79,21 +81,27 @@ const config: Config = {
                 hovered: colors.black,
               },
             },
-            formBtn: {
-              text: {
+            formEl: {
+              formText: {
+                inactive: colors.neonBlue,
+              },
+              placeholder: {
+                inactive: colors.metalWhite,
+              },
+              btnText: {
                 inactive: colors.neonBlue,
                 active: colors.neonBlue,
                 hovered: colors.neonBlue,
               },
               outline: {
-                inactive: colors.neonBlue,
+                inactive: colors.navyBlue,
                 active: colors.neonBlue,
                 hovered: colors.neonBlue,
               },
               bg: {
                 inactive: colors.darkBlue,
                 active: colors.darkBlue,
-                hovered: colors.darkBlue,
+                hovered: colors.black,
               },
             },
             projectIconOutline: {
