@@ -100,7 +100,7 @@ export default function TechStack() {
   );
 
   return (
-    <main className="scale flex flex-grow flex-col items-center justify-start">
+    <main className="flex flex-grow flex-col items-center justify-start">
       <Frame className="-mt-10 flex h-auto w-full scale-90">
         <Frame className="w-fit">
           <Frame className="flex w-[260px] flex-col justify-between">

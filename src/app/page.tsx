@@ -29,21 +29,24 @@ export default function Home() {
           href="/projects"
           className="group flex h-full w-full items-center justify-center"
         >
-          <LinedButton>Projects</LinedButton>
+          <LinedButton textStyle="text-[200%]">Projects</LinedButton>
         </TransitionLink>
         <Frame isGroup={false} className="flex max-w-[50vh] flex-col">
           <TransitionLink
             href="/get-in-touch"
             className="group flex h-full w-full items-center justify-center"
           >
-            <LinedButton orientation={ComponentOrientation.Vertical}>
+            <LinedButton
+              textStyle="text-[200%]"
+              orientation={ComponentOrientation.Vertical}
+            >
               Get in touch
             </LinedButton>
           </TransitionLink>
 
           <Frame className="pointer-events-none relative z-0 h-auto">
-            <Frame className="absolute flex h-[50%] w-3/4 flex-col flex-nowrap justify-between text-nowrap font-exo2 text-[1.75em] font-semibold text-nonInteractive *:shadow-nonInteractive *:text-shadow">
-              <div>Hi! It’s Daniel.</div>
+            <Frame className="*:text-shadow absolute flex h-[50%] w-3/4 flex-col flex-nowrap justify-between text-nowrap font-exo2 text-[150%] font-semibold text-nonInteractive *:shadow-nonInteractive">
+              <div>Hi! It’s Daniel,</div>
               <div>A full-stack web dev.</div>
             </Frame>
             <RotatingCircleIcon
@@ -57,7 +60,10 @@ export default function Home() {
             href="/tech-stack"
             className="group flex h-full w-full items-center justify-center"
           >
-            <LinedButton orientation={ComponentOrientation.Vertical}>
+            <LinedButton
+              textStyle="text-[200%]"
+              orientation={ComponentOrientation.Vertical}
+            >
               Tech stack
             </LinedButton>
           </TransitionLink>
@@ -67,7 +73,7 @@ export default function Home() {
           href="/about"
           className="group flex h-full w-full items-center justify-center"
         >
-          <LinedButton>About me </LinedButton>
+          <LinedButton textStyle="text-[200%]">About me </LinedButton>
         </TransitionLink>
       </div>
     </main>

@@ -53,7 +53,7 @@ export const PROJECT_LOGO_SOURCES = {
 
 export const IMAGE_LOGO_SOURCES = {
   [PROJECT_NAMES.HBT]: [
-    "/projectImages/Hbt-webapp.png",
+    "/projectImages/Hbt-webapp-1.png",
     "/projectImages/Hbt-webapp-2.png",
   ],
   [PROJECT_NAMES.Cosafe]: [
@@ -61,9 +61,9 @@ export const IMAGE_LOGO_SOURCES = {
     "/projectImages/Cosafe-app.png",
   ],
   [PROJECT_NAMES.Coyards]: [
-    "/projectImages/Coyards1.png",
-    "/projectImages/Coyards2.png",
-    "/projectImages/Coyards3.png",
+    "/projectImages/Coyards-1.png",
+    "/projectImages/Coyards-2.png",
+    "/projectImages/Coyards-3.png",
   ],
   [PROJECT_NAMES.OneTouch]: [
     "/projectImages/OneTouch-website.png",

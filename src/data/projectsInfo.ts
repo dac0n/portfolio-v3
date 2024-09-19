@@ -58,8 +58,8 @@ export const projects = {
     description: [
       "The website you are looking right now is a practice for my newly acquired Tailwind and Next.js skills, as well as a way to showcase my portfolio and skills.",
       "After last job position, i've decided that i need to spend some dedicated time to improve my knowledge and learn more about modern React ecosystem.",
-      "Project includes: Web Transitions API implementation; image / routes prefetching; server-side rendering; Mailchimp integration (WIP); customized theming (WIP); a design which i fully wrote by myself :)",
+      "Project includes: Web Transitions API implementation; image / routes prefetching; server-side rendering; E-mail API integration; customized theming (WIP); a design which i fully wrote by myself :)",
     ],
-    usedTech: ["React", "Tailwind", "Next.js", "Mailchimp", "Typescript"],
+    usedTech: ["React", "Tailwind", "Next.js", "Resend", "Typescript"],
   },
 };
