@@ -135,7 +135,7 @@ export default function TechStack() {
             />
           </div>
         </Frame>
-        <Frame className="flex w-full max-w-[700px] flex-col items-start justify-start gap-[2em] p-[4%]">
+        <Frame className="flex w-full max-w-[700px] flex-col items-start justify-start gap-[2em] p-[2%]">
           <HiTechFrame className="text-active">
             {!activeTech ? (
               <div className="text-shadow font-chakraPetch text-xl font-extralight shadow-active">
