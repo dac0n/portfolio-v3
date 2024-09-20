@@ -45,13 +45,14 @@ export default function Home() {
           </TransitionLink>
 
           <Frame className="pointer-events-none relative z-0 h-auto">
-            <Frame className="*:text-shadow absolute flex h-[50%] w-3/4 flex-col flex-nowrap justify-between text-nowrap font-exo2 text-[150%] font-semibold text-nonInteractive *:shadow-nonInteractive">
+            <Frame className="*:text-shadow absolute flex h-[48%] w-3/4 flex-col flex-nowrap justify-between text-nowrap font-exo2 text-[150%] font-semibold text-nonInteractive *:shadow-nonInteractive">
               <div>Hi! It’s Daniel,</div>
               <div>A full-stack web dev.</div>
             </Frame>
             <RotatingCircleIcon
               style={{
                 transform: `rotate(${rotationDegree}deg)`,
+                transitionDuration: "0s",
               }}
             />
           </Frame>

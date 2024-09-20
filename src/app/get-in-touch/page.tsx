@@ -70,7 +70,7 @@ export default function GetInTouch() {
               id="message"
               name="message"
               rows={4}
-              className="hide-scrollbar w-full border border-formEl-outline-inactive bg-formEl-bg-inactive px-3 py-2 font-baiJamjuree text-formEl-formText-inactive"
+              className="w-full border border-formEl-outline-inactive bg-formEl-bg-inactive px-3 py-2 font-baiJamjuree text-formEl-formText-inactive"
               placeholder="Leave your message..."
               required
             ></textarea>

@@ -17,7 +17,7 @@ export default function Projects() {
     null,
   );
   return (
-    <main className="hide-scrollbar flex flex-grow items-center justify-center overflow-scroll font-chakraPetch">
+    <main className="flex flex-grow items-center justify-center overflow-scroll font-chakraPetch">
       <Frame className="h-full w-full max-w-[1500px] flex-col justify-start gap-[36px] px-[100px] pt-[50px]">
         <Frame className="h-[193px] flex-col justify-start gap-[36px]">
           <div className="h-[60px] text-center text-[40px] text-nonInteractive shadow-nonInteractive textShadow">

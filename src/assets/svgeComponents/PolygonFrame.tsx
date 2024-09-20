@@ -53,7 +53,7 @@ export const PolygonFrame = ({
       >
         <div
           className={twMerge(
-            "hide-scrollbar flex h-full overflow-scroll text-left",
+            "flex h-full overflow-scroll text-left",
             textStyle,
           )}
         >

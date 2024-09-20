@@ -13,6 +13,7 @@ import {
 import { AngleClassName, ClassName } from "../utils/types";
 import { useNavigation } from "@/hooks/useNavigation";
 import { twMerge } from "tailwind-merge";
+import { switchTheme } from "../app-layout/helpers";
 
 type MenuLocation = Exclude<AppRoute, "/">;
 
@@ -151,7 +152,9 @@ export const NavMenu = ({ className }: NavMenuProps) => {
       },
     },
     themeSwitchIcon: {
-      onClick: () => {},
+      onClick: () => {
+        switchTheme();
+      },
     },
   };
 

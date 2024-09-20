@@ -25,13 +25,13 @@ const sideScreenTransforms: {
     navLayoutContainer: "w-screen h-[226px] min-h-[226px] bottom-0",
     navMenu: "bottom-0 left-1/2 -translate-x-1/2",
     circleShape: "w-[120%] h-full -top-[25px] left-1/2 -translate-x-1/2",
-    screenContainer: "flex flex-col-reverse overflow-scroll hide-scrollbar",
+    screenContainer: "flex flex-col-reverse overflow-scroll",
   },
   bottom: {
     navLayoutContainer: "w-screen h-[226px] min-h-[226px] top-0",
     navMenu: "top-0 left-1/2 -translate-x-1/2",
     circleShape: "w-[120%] h-full -bottom-[25px] left-1/2 -translate-x-1/2",
-    screenContainer: "flex flex-col overflow-scroll hide-scrollbar",
+    screenContainer: "flex flex-col overflow-scroll",
   },
   left: {
     navLayoutContainer: "h-screen w-[226px] min-h-[226px] right-0",
@@ -75,3 +75,9 @@ export const getLayoutTransforms = (path: AppRoute) => {
     };
   }
 };
+
+export function switchTheme() {
+  const bodyClasses = document.body.classList;
+  if (bodyClasses.contains("light-theme")) bodyClasses.remove("light-theme");
+  else bodyClasses.add("light-theme");
+}

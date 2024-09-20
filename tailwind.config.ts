@@ -14,6 +14,16 @@ export const colors = {
   selectiveYellow: "#FFB800",
   lightGray: "#D7D7D7",
   metalWhite: "#CDCDCD",
+  ivory: "#FFFFF0",
+  beige: "#F5F5DC",
+  wood: "#DEB887",
+  darkWood: "#8B5A2B",
+  warmGray: "#D3D3D3",
+  darkBeige: "#D2B48C",
+  sienna: "#A0522D",
+  peru: "#CD853F",
+  chocolate: "#D2691E",
+  darkKhaki: "#BDB76B",
 };
 
 const config: Config = {
@@ -61,8 +71,6 @@ const config: Config = {
     require("tailwindcss-themer")({
       defaultTheme: {
         extend: {
-          // put the default values of any config you want themed
-          // just as if you were to extend tailwind's theme like normal https://tailwindcss.com/docs/theme#extending-the-default-theme
           colors: {
             menuBtn: {
               text: {
@@ -136,6 +144,75 @@ const config: Config = {
           },
         },
       },
+      themes: [
+        {
+          name: "light-theme",
+          extend: {
+            colors: {
+              menuBtn: {
+                text: {
+                  inactive: colors.sienna,
+                  active: colors.ivory,
+                  hovered: colors.chocolate,
+                },
+                outline: {
+                  inactive: colors.sienna,
+                  active: colors.sienna,
+                  hovered: colors.chocolate,
+                },
+                bg: {
+                  inactive: colors.beige,
+                  active: colors.peru,
+                  hovered: colors.beige,
+                },
+              },
+              formEl: {
+                formText: {
+                  inactive: colors.sienna,
+                },
+                placeholder: {
+                  inactive: colors.warmGray,
+                },
+                btnText: {
+                  inactive: colors.sienna,
+                  active: colors.sienna,
+                  hovered: colors.sienna,
+                },
+                outline: {
+                  inactive: colors.darkKhaki,
+                  active: colors.peru,
+                  hovered: colors.peru,
+                },
+                bg: {
+                  inactive: colors.ivory,
+                  active: colors.ivory,
+                  hovered: colors.beige,
+                },
+              },
+              projectIconOutline: {
+                inactive: colors.darkKhaki,
+                active: colors.peru,
+                hovered: colors.chocolate,
+              },
+              shape: {
+                main: colors.peru,
+                alt: colors.sienna,
+              },
+              icons: {
+                processor: {
+                  gradientColor1: colors.darkBeige,
+                  gradientColor2: colors.selectiveYellow,
+                },
+              },
+              hovered: colors.chocolate,
+              nonInteractive: colors.sienna,
+              inactive: colors.darkKhaki,
+              active: colors.peru,
+              bgColor: colors.ivory,
+            },
+          },
+        },
+      ],
     }),
     plugin(function ({
       matchUtilities,

@@ -64,7 +64,7 @@ export const HiTechFrame = ({
       >
         <div
           className={twMerge(
-            "hide-scrollbar inline-block h-full items-start justify-start overflow-scroll",
+            "inline-block h-full items-start justify-start overflow-scroll",
             textStyle,
           )}
         >
