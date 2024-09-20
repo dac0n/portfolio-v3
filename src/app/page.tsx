@@ -27,14 +27,14 @@ export default function Home() {
       <div className="flex h-full w-full">
         <TransitionLink
           href="/projects"
-          className="group flex h-full w-full items-center justify-center"
+          className="group flex h-full w-full cursor-pointer items-center justify-center"
         >
           <LinedButton textStyle="text-[200%]">Projects</LinedButton>
         </TransitionLink>
         <Frame isGroup={false} className="flex max-w-[50vh] flex-col">
           <TransitionLink
             href="/get-in-touch"
-            className="group flex h-full w-full items-center justify-center"
+            className="group flex h-full w-full cursor-pointer items-center justify-center"
           >
             <LinedButton
               textStyle="text-[200%]"
@@ -58,7 +58,7 @@ export default function Home() {
 
           <TransitionLink
             href="/tech-stack"
-            className="group flex h-full w-full items-center justify-center"
+            className="group flex h-full w-full cursor-pointer items-center justify-center"
           >
             <LinedButton
               textStyle="text-[200%]"
@@ -71,7 +71,7 @@ export default function Home() {
 
         <TransitionLink
           href="/about"
-          className="group flex h-full w-full items-center justify-center"
+          className="group flex h-full w-full cursor-pointer items-center justify-center"
         >
           <LinedButton textStyle="text-[200%]">About me </LinedButton>
         </TransitionLink>
