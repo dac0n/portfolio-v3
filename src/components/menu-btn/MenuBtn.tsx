@@ -58,7 +58,7 @@ export const MenuBtn = ({
           {children}
         </Frame>
       </Frame>
-      <Frame className={`z-0 h-full w-auto ${cornersClassName}`}>
+      <Frame className={`z-0 h-full w-auto`}>
         <CornerIcon
           {...rightCorner}
           isActive={isActive}

@@ -36,7 +36,9 @@ export default function Projects() {
         {selectedProject && (
           <div className="w-full animate-fade-in flex-col object-cover">
             <Frame className="flex-row justify-between">
-              <Frame className={`w-[48%] flex-col justify-start gap-[22px]`}>
+              <Frame
+                className={`mb-7 w-[48%] flex-col justify-start gap-[22px]`}
+              >
                 <HiTechFrame className="flex h-[470px] text-[10px]">
                   {
                     <div className="flex flex-col gap-1 text-[20px] font-light text-active">

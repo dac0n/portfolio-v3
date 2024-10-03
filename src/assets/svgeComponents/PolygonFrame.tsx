@@ -40,13 +40,23 @@ export const PolygonFrame = ({
             y2="217.776"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="white" />
-            <stop offset="1" stopColor="white" stop-opacity="0" />
+            <stop
+              style={{
+                stopOpacity: 0,
+                stopColor: "rgb(var(--colors-icons-polygonFrame-outline))",
+              }}
+            />
+            <stop
+              offset="1"
+              style={{
+                stopColor: "rgb(var(--colors-icons-polygonFrame-outline))",
+              }}
+            />
           </linearGradient>
         </defs>
       </svg>
       <foreignObject
-        y={9}
+        y={20}
         width="100%"
         height="323px"
         className={twMerge("overflow-hidden px-11 py-8 pl-20", className)}

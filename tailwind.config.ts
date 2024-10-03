@@ -126,6 +126,9 @@ const config: Config = {
                 gradientColor1: colors.olive,
                 gradientColor2: colors.selectiveYellow,
               },
+              polygonFrame: {
+                outline: colors.white,
+              },
             },
             hovered: colors.white,
             nonInteractive: colors.white,
@@ -202,6 +205,9 @@ const config: Config = {
                 processor: {
                   gradientColor1: colors.darkBeige,
                   gradientColor2: colors.selectiveYellow,
+                },
+                polygonFrame: {
+                  outline: colors.darkBeige,
                 },
               },
               hovered: colors.chocolate,
