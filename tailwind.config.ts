@@ -129,6 +129,7 @@ const config: Config = {
               polygonFrame: {
                 outline: colors.white,
               },
+              default: colors.white,
             },
             hovered: colors.white,
             nonInteractive: colors.white,
@@ -209,6 +210,7 @@ const config: Config = {
                 polygonFrame: {
                   outline: colors.darkBeige,
                 },
+                default: colors.black,
               },
               hovered: colors.chocolate,
               nonInteractive: colors.sienna,

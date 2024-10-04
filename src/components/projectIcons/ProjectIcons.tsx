@@ -3,6 +3,7 @@ import { PROJECT_NAMES, PROJECT_LOGO_SOURCES } from "../utils/constants";
 import { twMerge } from "tailwind-merge";
 import Image from "next/image";
 import { ClassName } from "../utils/types";
+import { ProjectIcon } from "@/assets/svgeComponents/ProjectIcon";
 
 interface ProjectIconsProps {
   projects: PROJECT_NAMES[];
@@ -30,12 +31,8 @@ const ProjectIcons: React.FC<ProjectIconsProps> = ({
           )}
           onClick={() => onClick?.(project)}
         >
-          <Image
-            priority={true}
-            height={0}
-            width={0}
-            alt={project}
-            src={PROJECT_LOGO_SOURCES[project]}
+          <ProjectIcon
+            projectName={project}
             className="h-full w-full object-contain"
           />
         </div>
