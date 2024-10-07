@@ -26,7 +26,7 @@ const ProjectIcons: React.FC<ProjectIconsProps> = ({
         <div
           key={project}
           className={twMerge(
-            `"inline-block transition-colors duration-300 ${isActive?.(project) ? "border-projectIconOutline-active" : "border-projectIconOutline-inactive hover:border-projectIconOutline-hovered"} ${!!onClick && "cursor-pointer rounded-xl border-2 p-1"} "cursor-pointer"`,
+            `"inline-block transition-colors duration-300 ${isActive?.(project) ? "border-projectIconOutline-active" : "border-projectIconOutline-inactive hover:border-projectIconOutline-hovered"} ${!!onClick && "cursor-pointer rounded-xl border-2 p-1 md:p-2"} "cursor-pointer"`,
             iconClassName,
           )}
           onClick={() => onClick?.(project)}
