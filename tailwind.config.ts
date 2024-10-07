@@ -14,16 +14,19 @@ export const colors = {
   selectiveYellow: "#FFB800",
   lightGray: "#D7D7D7",
   metalWhite: "#CDCDCD",
-  ivory: "#FFFFF0",
-  beige: "#F5F5DC",
-  wood: "#DEB887",
-  darkWood: "#8B5A2B",
-  warmGray: "#D3D3D3",
-  darkBeige: "#D2B48C",
-  sienna: "#A0522D",
-  peru: "#CD853F",
-  chocolate: "#D2691E",
-  darkKhaki: "#BDB76B",
+  // Updated professional green and sky palette
+  crisp: "#FFFFFF",
+  cloud: "#F8FAFC", // Lighter
+  mist: "#EDF2F7", // Lighter
+  frost: "#CBD5E0", // Darker
+  sage: "#CAD9C8",
+  mint: "#96da8e",
+  leaf: "#8BAB8D",
+  forest: "#5E8C61",
+  pine: "#3A6B3D",
+  sky: "#B8D8E8",
+  azure: "#7CACCF",
+  charcoal: "#4A5568", // New darker color for better contrast
 };
 
 const config: Config = {
@@ -155,68 +158,68 @@ const config: Config = {
             colors: {
               menuBtn: {
                 text: {
-                  inactive: colors.sienna,
-                  active: colors.ivory,
-                  hovered: colors.chocolate,
+                  inactive: colors.forest,
+                  active: colors.crisp,
+                  hovered: colors.pine,
                 },
                 outline: {
-                  inactive: colors.sienna,
-                  active: colors.sienna,
-                  hovered: colors.chocolate,
+                  inactive: colors.leaf,
+                  active: colors.forest,
+                  hovered: colors.pine,
                 },
                 bg: {
-                  inactive: colors.beige,
-                  active: colors.peru,
-                  hovered: colors.beige,
+                  inactive: colors.cloud,
+                  active: colors.mint,
+                  hovered: colors.mist,
                 },
               },
               formEl: {
                 formText: {
-                  inactive: colors.sienna,
+                  inactive: colors.forest,
                 },
                 placeholder: {
-                  inactive: colors.warmGray,
+                  inactive: colors.charcoal, // Darker for better visibility
                 },
                 btnText: {
-                  inactive: colors.sienna,
-                  active: colors.sienna,
-                  hovered: colors.sienna,
+                  inactive: colors.forest,
+                  active: colors.crisp,
+                  hovered: colors.pine,
                 },
                 outline: {
-                  inactive: colors.darkKhaki,
-                  active: colors.peru,
-                  hovered: colors.peru,
+                  inactive: colors.leaf,
+                  active: colors.forest,
+                  hovered: colors.pine,
                 },
                 bg: {
-                  inactive: colors.ivory,
-                  active: colors.ivory,
-                  hovered: colors.beige,
+                  inactive: colors.crisp,
+                  active: colors.cloud,
+                  hovered: colors.mist,
                 },
               },
               projectIconOutline: {
-                inactive: colors.darkKhaki,
-                active: colors.peru,
-                hovered: colors.chocolate,
+                inactive: colors.leaf,
+                active: colors.forest,
+                hovered: colors.pine,
               },
               shape: {
-                main: colors.peru,
-                alt: colors.sienna,
+                main: colors.mint,
+                alt: colors.sky,
               },
               icons: {
                 processor: {
-                  gradientColor1: colors.darkBeige,
-                  gradientColor2: colors.selectiveYellow,
+                  gradientColor1: colors.sage,
+                  gradientColor2: colors.azure,
                 },
                 polygonFrame: {
-                  outline: colors.darkBeige,
+                  outline: colors.leaf,
                 },
-                default: colors.black,
+                default: colors.forest,
               },
-              hovered: colors.chocolate,
-              nonInteractive: colors.sienna,
-              inactive: colors.darkKhaki,
-              active: colors.peru,
-              bgColor: colors.ivory,
+              hovered: colors.pine,
+              nonInteractive: colors.charcoal, // Darker for better visibility
+              inactive: colors.leaf,
+              active: colors.forest,
+              bgColor: colors.crisp,
             },
           },
         },

@@ -56,14 +56,15 @@ export const PolygonFrame = ({
         </defs>
       </svg>
       <foreignObject
-        y={20}
-        width="100%"
-        height="323px"
-        className={twMerge("overflow-hidden px-11 py-8 pl-20", className)}
+        x="5%"
+        y="10%"
+        width="90%"
+        height="80%"
+        className={twMerge("overflow-hidden", className)}
       >
         <div
           className={twMerge(
-            "flex h-full overflow-scroll text-left",
+            "flex h-full w-full flex-col items-end justify-center overflow-auto p-4 text-right",
             textStyle,
           )}
         >

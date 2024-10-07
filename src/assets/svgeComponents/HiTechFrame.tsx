@@ -14,17 +14,13 @@ export const HiTechFrame = ({
   ...rest
 }: HiTechFrameProps) => {
   return (
-    <svg
-      className={twMerge("h-full w-full overflow-hidden", className)}
-      fill="none"
-      {...rest}
-    >
+    <div className={twMerge("relative h-0 w-full pb-[69.186%]", className)}>
       <svg
+        className="absolute left-0 top-0 h-full w-full"
         viewBox="0 0 344 238"
         fill="none"
-        preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={"h-full w-full"}
+        {...rest}
       >
         <path
           d="M282 9H282.207L282.354 8.85355L286.207 5H323.793L339.5 20.7071V218.293L323.793 234H292.207L288.354 230.146L288.207 230H288H56H55.7929L55.6464 230.146L51.7929 234H20.2071L4.5 218.293V119.717L8.34197 116.115L8.5 115.967V115.75V49V48.7834L8.34197 48.6352L4.5 45.0334V20.7071L20.2071 5H209.793L213.646 8.85355L213.793 9H214H282Z"
@@ -57,20 +53,14 @@ export const HiTechFrame = ({
           </filter>
         </defs>
       </svg>
-      <foreignObject
-        width="100%"
-        height="100%"
-        className={twMerge("overflow-hidden px-8 py-8", className)}
+      <div
+        className={twMerge(
+          "absolute left-0 top-0 h-full w-full overflow-hidden p-9",
+          textStyle,
+        )}
       >
-        <div
-          className={twMerge(
-            "inline-block h-full items-start justify-start overflow-scroll",
-            textStyle,
-          )}
-        >
-          {rest.children}
-        </div>
-      </foreignObject>
-    </svg>
+        <div className="h-full w-full overflow-auto">{rest.children}</div>
+      </div>
+    </div>
   );
 };
