@@ -45,7 +45,7 @@ export default function Home() {
           </TransitionLink>
 
           <Frame className="pointer-events-none relative z-0 h-auto">
-            <Frame className="*:text-shadow absolute flex h-[48%] w-3/4 flex-col flex-nowrap justify-between text-nowrap font-exo2 text-[110%] font-semibold text-nonInteractive *:shadow-nonInteractive md:text-[150%]">
+            <Frame className="*:text-shadow desktop:text-[150%] absolute flex h-[48%] w-3/4 flex-col flex-nowrap justify-between text-nowrap font-exo2 text-[110%] font-semibold text-nonInteractive *:shadow-nonInteractive">
               <div>Hi! It’s Daniel,</div>
               <div>A full-stack web dev.</div>
             </Frame>

@@ -18,9 +18,9 @@ export default function Projects() {
   );
   return (
     <main className="flex flex-grow items-center justify-center overflow-scroll font-chakraPetch">
-      <Frame className="h-full max-h-[900px] w-full max-w-[1500px] flex-col justify-start gap-[2%] px-[100px] md:justify-center md:gap-[4%]">
-        <Frame className="h-[17%] flex-col justify-between md:h-[20%]">
-          <div className="pt-3 text-center text-[2rem] leading-[2rem] text-nonInteractive shadow-nonInteractive textShadow md:pt-0 md:text-[2.5rem] md:leading-[2.5rem]">
+      <Frame className="desktop:justify-center desktop:gap-[4%] h-full max-h-[900px] w-full max-w-[1500px] flex-col justify-start gap-[2%] px-[100px]">
+        <Frame className="desktop:h-[20%] h-[17%] flex-col justify-between">
+          <div className="desktop:pt-0 desktop:text-[2.5rem] desktop:leading-[2.5rem] pt-3 text-center text-[2rem] leading-[2rem] text-nonInteractive shadow-nonInteractive textShadow">
             Pick a project:
           </div>
           <ProjectIcons

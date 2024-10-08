@@ -38,6 +38,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        tablet: "640px",
+        // => @media (min-width: 640px) { ... }
+
+        laptop: "1024px",
+        // => @media (min-width: 1024px) { ... }
+
+        desktop: "1300px",
+        // => @media (min-width: 1300px) { ... }
+      },
       keyframes: {
         fadeIn: {
           "0%": {
