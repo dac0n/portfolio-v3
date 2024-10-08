@@ -28,10 +28,18 @@ export default function AppLayout({
       className={`flex h-screen w-screen overflow-hidden ${shouldDisplayTransitionPlaceholder ? flexDirectionMap[transitionDirection[AppRoutes[currentRoute]] as Direction] : ""}`}
     >
       <div
-        className={`flex h-screen w-screen flex-none ${screenContainerTransforms ?? ""}`}
+        className={`hidden h-screen w-screen flex-none md:flex ${screenContainerTransforms ?? ""}`}
       >
         <NavLayout />
         {children}
+      </div>
+      <div className="flex h-screen w-screen flex-col items-start justify-center gap-3 p-5 text-xl text-gray-400 md:hidden">
+        <div>Mobile design is under construction.</div>
+        <div>
+          Non-mobile - preview available. You may check it out with a bigger
+          screen.
+        </div>
+        <div className="mt-3"></div>
       </div>
       {shouldDisplayTransitionPlaceholder && <TransitionPlaceholder />}
     </div>

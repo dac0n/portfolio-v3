@@ -5,7 +5,7 @@ import { Frame } from "../frame/Frame";
 
 export const TransitionPlaceholder = () => {
   return (
-    <div className="flex h-screen w-screen flex-none bg-bgColor">
+    <div className="hidden h-screen w-screen flex-none bg-bgColor md:flex">
       <LinedButton />
       <Frame className="flex max-w-[45vh] flex-col">
         <LinedButton orientation={ComponentOrientation.Vertical} />
