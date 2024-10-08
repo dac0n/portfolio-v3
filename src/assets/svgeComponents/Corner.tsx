@@ -42,7 +42,7 @@ export const CornerIcon = ({
           `${
             isActive
               ? "fill-menuBtn-bg-active stroke-menuBtn-outline-active"
-              : "fill-menuBtn-bg-inactive stroke-menuBtn-outline-inactive group-hover/button:stroke-menuBtn-outline-hovered"
+              : "fill-menuBtn-bg-inactive stroke-menuBtn-outline-inactive group-hover/button:fill-menuBtn-bg-hovered group-hover/button:stroke-menuBtn-outline-hovered"
           }`,
           className,
         )} // transition-colors duration-300 ease-in
